@@ -103,6 +103,7 @@
     <Compile Include="Models\DataVertex.cs" />
     <Compile Include="Models\GraphAreaExample.cs" />
     <Compile Include="Models\GraphExample.cs" />
+    <Compile Include="NodeCollection.cs" />
     <Compile Include="Nodes.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

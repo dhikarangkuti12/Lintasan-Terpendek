@@ -20,11 +20,11 @@ namespace JarakTerdekat
     {
         private readonly MaterialSkinManager materialSkinManager;
 
-        private List<Node> nodeCollection;
+        private NodeCollection nodeCollection;
 
         public Form1()
         {
-            nodeCollection = new List<Node>();
+            nodeCollection = new NodeCollection();
 
             materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
@@ -33,6 +33,8 @@ namespace JarakTerdekat
 
             InitializeComponent();
             Load += Form1_Load;
+
+            panel_nodeProperty.Visible = false;
         }
 
         void Form1_Load(object sender, EventArgs e)
@@ -112,11 +114,33 @@ namespace JarakTerdekat
 
         private void btn_tambahNode_Click(object sender, EventArgs e)
         {
-            Position position = new Position(double.Parse(txtField_posx.Text), double.Parse(txtField_posy.Text));
-            this.nodeCollection.Add(new Node(txtField_nodeName.Text, position));
-            this.nodeCollection[nodeCollection.Count - 1].allNodes = this.nodeCollection;
+            if(txtField_nodeName.Text!="" && !nodeCollection.isContainsNode(txtField_nodeName.Text))
+            {
+                nodeCollection.addNode(new Node(txtField_nodeName.Text));
+                treeView1.Nodes[0].Nodes.Add(txtField_nodeName.Text);
+            }
+        }
 
+        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            if(treeView1.SelectedNode.Text != "Root")
+            {
+                updateAvailableNeigborsComboBox();
+                panel_nodeProperty.Visible = true;
+            }
+            else
+            {
+                panel_nodeProperty.Visible = false;
+            }
+        }
 
+        private void updateAvailableNeigborsComboBox()
+        {
+            comboBox_neighbors.Items.Clear();
+            foreach (var node in nodeCollection.Nodes[nodeCollection.getIndexByName(treeView1.SelectedNode.Text)].availableNeighbors)
+            {
+                comboBox_neighbors.Items.Add(node.name);
+            }
         }
     }
 }

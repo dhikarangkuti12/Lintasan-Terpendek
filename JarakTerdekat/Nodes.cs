@@ -23,15 +23,11 @@ namespace JarakTerdekat
         public List<Node> neighbors;
         public List<Node> allNodes;
 
-        public Position position;
-
-        public Node(string name, Position position)
+        public Node(string name)
         {
             this.name = name;
             this.availableNeighbors = new List<Node>();
             this.neighbors = new List<Node>();
-
-            this.position = position;
         }
 
         public void addNeighbor(string neighborName)
