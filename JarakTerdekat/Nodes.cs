@@ -23,19 +23,17 @@ namespace JarakTerdekat
         public List<Node> neighbors;
         public List<Node> allNodes;
 
-        public struct Position
-        {
-            double x;
-            double y;
-        };
+        public Position position;
 
-        public Node(List<Node> allNodes, string name, double x, double y)
+        public Node(List<Node> allNodes, string name, Position position)
         {
             this.name = name;
 
             this.allNodes = allNodes;
             this.availableNeighbors = new List<Node>();
             this.neighbors = new List<Node>();
+
+            this.position = position;
         }
 
         public void addNeighbor(string neighborName)
@@ -77,5 +75,11 @@ namespace JarakTerdekat
 
             return index;
         }
+    }
+
+    class Position
+    {
+        public double x;
+        public double y;
     }
 }
