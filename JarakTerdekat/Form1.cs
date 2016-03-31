@@ -112,6 +112,10 @@ namespace JarakTerdekat
 
         private void btn_tambahNode_Click(object sender, EventArgs e)
         {
+            Position position = new Position(double.Parse(txtField_posx.Text), double.Parse(txtField_posy.Text));
+            this.nodeCollection.Add(new Node(txtField_nodeName.Text, position));
+            this.nodeCollection[nodeCollection.Count - 1].allNodes = this.nodeCollection;
+
 
         }
     }

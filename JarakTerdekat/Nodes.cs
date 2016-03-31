@@ -25,11 +25,9 @@ namespace JarakTerdekat
 
         public Position position;
 
-        public Node(List<Node> allNodes, string name, Position position)
+        public Node(string name, Position position)
         {
             this.name = name;
-
-            this.allNodes = allNodes;
             this.availableNeighbors = new List<Node>();
             this.neighbors = new List<Node>();
 
@@ -81,5 +79,11 @@ namespace JarakTerdekat
     {
         public double x;
         public double y;
+
+        public Position(double x, double y)
+        {
+            this.x = x;
+            this.y = y;
+        }
     }
 }
