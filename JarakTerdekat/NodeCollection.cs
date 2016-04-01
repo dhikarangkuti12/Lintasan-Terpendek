@@ -9,6 +9,7 @@ namespace JarakTerdekat
     class NodeCollection
     {
         public List<Node> Nodes;
+        public Node selectedNode;
 
         public NodeCollection()
         {
@@ -53,9 +54,12 @@ namespace JarakTerdekat
 
         protected void addPreviousNodesToAvailableNeighobor()
         {
-            for(int i=0; i<Nodes.Count-1; i++)
+            if (Nodes.Count - 1 >= 0)
             {
-                Nodes[Nodes.Count - 1].availableNeighbors.Add(Nodes[i]);
+                for (int i=0; i<Nodes.Count-1; i++)
+                {
+                    Nodes[Nodes.Count - 1].availableNeighbors.Add(Nodes[i]);
+                }
             }
         }
 

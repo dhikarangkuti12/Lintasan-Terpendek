@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Root");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Root");
             this.wpfHost = new System.Windows.Forms.Integration.ElementHost();
             this.but_generate = new System.Windows.Forms.Button();
             this.but_reload = new System.Windows.Forms.Button();
@@ -348,6 +348,7 @@
             this.btn_tambahTetangga.TabIndex = 30;
             this.btn_tambahTetangga.Text = "Tambah Tetangga";
             this.btn_tambahTetangga.UseVisualStyleBackColor = true;
+            this.btn_tambahTetangga.Click += new System.EventHandler(this.btn_tambahTetangga_Click);
             // 
             // comboBox_neighbors
             // 
@@ -470,10 +471,10 @@
             this.treeView1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.treeView1.Location = new System.Drawing.Point(3, 16);
             this.treeView1.Name = "treeView1";
-            treeNode2.Name = "Node0";
-            treeNode2.Text = "Root";
+            treeNode3.Name = "Node0";
+            treeNode3.Text = "Root";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode2});
+            treeNode3});
             this.treeView1.Size = new System.Drawing.Size(195, 426);
             this.treeView1.TabIndex = 5;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);

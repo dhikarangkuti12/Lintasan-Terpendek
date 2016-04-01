@@ -127,6 +127,7 @@ namespace JarakTerdekat
             {
                 updateAvailableNeigborsComboBox();
                 panel_nodeProperty.Visible = true;
+                nodeCollection.selectedNode = nodeCollection.Nodes[nodeCollection.getIndexByName(treeView1.SelectedNode.Text)];
             }
             else
             {
@@ -141,6 +142,15 @@ namespace JarakTerdekat
             {
                 comboBox_neighbors.Items.Add(node.name);
             }
+        }
+
+        private void btn_tambahTetangga_Click(object sender, EventArgs e)
+        {
+            var selectedNeighborName = comboBox_neighbors.SelectedItem.ToString();
+            var selectedNeighbor = nodeCollection.Nodes[nodeCollection.getIndexByName(selectedNeighborName)];
+            listview_nodeNeighbors.Items.Add(new ListViewItem(new[] { selectedNeighborName, "0" }));
+
+            nodeCollection.selectedNode.addNeighbor(selectedNeighborName);
         }
     }
 }
