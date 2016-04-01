@@ -47,7 +47,8 @@ namespace JarakTerdekat
 
         public void removeNeighbor(string neighborName)
         {
-
+            neighborsCollection.Nodes.RemoveAt(getNeighborIndexByName(neighborName, neighborsCollection.Nodes));
+            availableNeighbors.Add(allNodes[getIndexByName(neighborName, allNodes)]);
         }
 
         protected int getIndexByName(string nodeName, List<Node> Collection)
@@ -57,6 +58,24 @@ namespace JarakTerdekat
             foreach (var node in Collection)
             {
                 if(node.name == nodeName)
+                {
+                    index = count;
+                    break;
+                }
+
+                count++;
+            }
+
+            return index;
+        }
+
+        protected int getNeighborIndexByName(string nodeName, List<Neighbor> Collection)
+        {
+            int index = -1;
+            int count = 0;
+            foreach (var node in Collection)
+            {
+                if (node.node.name == nodeName)
                 {
                     index = count;
                     break;

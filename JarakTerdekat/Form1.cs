@@ -172,5 +172,17 @@ namespace JarakTerdekat
                 listview_nodeNeighbors.Items.Add(new ListViewItem(new[] { neighbor.node.name, neighbor.jarak.ToString() }));
             }
         }
+
+        private void btn_deleteSelectedNode_Click(object sender, EventArgs e)
+        {
+            if (listview_nodeNeighbors.SelectedItems.Count > 0)
+            {
+                var selectedNode = nodeCollection.Nodes[nodeCollection.getIndexByName(treeView1.SelectedNode.Text)];
+                selectedNode.removeNeighbor(listview_nodeNeighbors.SelectedItems[0].Text);
+
+                updateAvailableNeigborsComboBox();
+                populateSelectedNodeDataToList();
+            }
+        }
     }
 }
