@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphX.PCL.Logic", "GraphX.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RangkutiShortestPath", "..\RangkutiShortestPath\RangkutiShortestPath\RangkutiShortestPath.csproj", "{47409AA5-62AE-4189-8E83-C471502DF5E9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleGraph", "..\GraphX-PCL\Examples\SimpleGraph\SimpleGraph.csproj", "{E00C5274-AA34-4CC1-BB24-F59BCF130B85}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -88,6 +90,22 @@ Global
 		{47409AA5-62AE-4189-8E83-C471502DF5E9}.Release|x64.Build.0 = Release|Any CPU
 		{47409AA5-62AE-4189-8E83-C471502DF5E9}.Release|x86.ActiveCfg = Release|Any CPU
 		{47409AA5-62AE-4189-8E83-C471502DF5E9}.Release|x86.Build.0 = Release|Any CPU
+		{E00C5274-AA34-4CC1-BB24-F59BCF130B85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E00C5274-AA34-4CC1-BB24-F59BCF130B85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E00C5274-AA34-4CC1-BB24-F59BCF130B85}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{E00C5274-AA34-4CC1-BB24-F59BCF130B85}.Debug|ARM.Build.0 = Debug|Any CPU
+		{E00C5274-AA34-4CC1-BB24-F59BCF130B85}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{E00C5274-AA34-4CC1-BB24-F59BCF130B85}.Debug|x64.Build.0 = Debug|Any CPU
+		{E00C5274-AA34-4CC1-BB24-F59BCF130B85}.Debug|x86.ActiveCfg = Debug|x86
+		{E00C5274-AA34-4CC1-BB24-F59BCF130B85}.Debug|x86.Build.0 = Debug|x86
+		{E00C5274-AA34-4CC1-BB24-F59BCF130B85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E00C5274-AA34-4CC1-BB24-F59BCF130B85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E00C5274-AA34-4CC1-BB24-F59BCF130B85}.Release|ARM.ActiveCfg = Release|Any CPU
+		{E00C5274-AA34-4CC1-BB24-F59BCF130B85}.Release|ARM.Build.0 = Release|Any CPU
+		{E00C5274-AA34-4CC1-BB24-F59BCF130B85}.Release|x64.ActiveCfg = Release|Any CPU
+		{E00C5274-AA34-4CC1-BB24-F59BCF130B85}.Release|x64.Build.0 = Release|Any CPU
+		{E00C5274-AA34-4CC1-BB24-F59BCF130B85}.Release|x86.ActiveCfg = Release|x86
+		{E00C5274-AA34-4CC1-BB24-F59BCF130B85}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

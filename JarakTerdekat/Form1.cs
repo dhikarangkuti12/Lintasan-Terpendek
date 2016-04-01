@@ -80,28 +80,39 @@ namespace JarakTerdekat
 
         private GraphExample GenerateGraph()
         {
-            //FOR DETAILED EXPLANATION please see SimpleGraph example project
             var dataGraph = new GraphExample();
-            for (int i = 1; i < 10; i++)
+
+            foreach (var node in nodeCollection.Nodes)
             {
-                var dataVertex = new DataVertex("MyVertex " + i);
+                var dataVertex = new DataVertex(node.name);
                 dataGraph.AddVertex(dataVertex);
             }
+
+            DataEdge dataEdge;
+
             var vlist = dataGraph.Vertices.ToList();
             //Then create two edges optionaly defining Text property to show who are connected
-            var dataEdge = new DataEdge(vlist[0], vlist[1]) { Text = string.Format("{0} -> {1}", vlist[0], vlist[1]) };
-            dataGraph.AddEdge(dataEdge);
-            dataEdge = new DataEdge(vlist[2], vlist[3]) { Text = string.Format("{0} -> {1}", vlist[2], vlist[3]) };
-            dataGraph.AddEdge(dataEdge);
+            for(int i=0; i < nodeCollection.Nodes.Count; i++)
+            {
+                if(nodeCollection.Nodes[i].neighborsCollection.Nodes.Count > 0)
+                {
+                    foreach(var neighbor in nodeCollection.Nodes[i].neighborsCollection.Nodes)
+                    {
+                        var neighborIndex = 
+                        dataEdge = new DataEdge(vlist[i], vlist[nodeCollection.getIndexByName(neighbor.node.name)]) { Text = string.Format("{0} -- {1}", vlist[i], vlist[nodeCollection.getIndexByName(neighbor.node.name)]) };
+                        dataGraph.AddEdge(dataEdge);
+                    }
+                }
+            }
 
-
-            dataEdge = new DataEdge(vlist[2], vlist[2]) { Text = string.Format("{0} -> {1}", vlist[2], vlist[2]) };
-            dataGraph.AddEdge(dataEdge);
             return dataGraph;
         }
 
         private void but_generate_Click(object sender, EventArgs e)
         {
+            wpfHost.Child = GenerateWpfVisuals();
+            _zoomctrl.ZoomToFill();
+
             _gArea.GenerateGraph(true);
             _gArea.SetVerticesDrag(true, true);
             _zoomctrl.ZoomToFill();
@@ -118,6 +129,7 @@ namespace JarakTerdekat
             {
                 nodeCollection.addNode(new Node(txtField_nodeName.Text));
                 treeView1.Nodes[0].Nodes.Add(txtField_nodeName.Text);
+                updateAvailableNeigborsComboBox();
             }
         }
 
@@ -138,10 +150,13 @@ namespace JarakTerdekat
 
         private void updateAvailableNeigborsComboBox()
         {
-            comboBox_neighbors.Items.Clear();
-            foreach (var node in nodeCollection.Nodes[nodeCollection.getIndexByName(treeView1.SelectedNode.Text)].availableNeighbors)
+            if(treeView1.SelectedNode != treeView1.Nodes[0] && treeView1.SelectedNode != null)
             {
-                comboBox_neighbors.Items.Add(node.name);
+                comboBox_neighbors.Items.Clear();
+                foreach (var node in nodeCollection.Nodes[nodeCollection.getIndexByName(treeView1.SelectedNode.Text)].availableNeighbors)
+                {
+                    comboBox_neighbors.Items.Add(node.name);
+                }
             }
         }
 
@@ -181,6 +196,25 @@ namespace JarakTerdekat
                 selectedNode.removeNeighbor(listview_nodeNeighbors.SelectedItems[0].Text);
 
                 updateAvailableNeigborsComboBox();
+                populateSelectedNodeDataToList();
+            }
+        }
+
+        private void listview_nodeNeighbors_DoubleClick(object sender, EventArgs e)
+        {
+            if (listview_nodeNeighbors.SelectedItems.Count > 0)
+            {
+                var selectedNode = nodeCollection.Nodes[nodeCollection.getIndexByName(treeView1.SelectedNode.Text)];
+
+                var selectedNeighbor = selectedNode.getNeighborByName(listview_nodeNeighbors.SelectedItems[0].Text);
+
+                using (inputJarakDialogue updateJarakDialogue = new inputJarakDialogue(selectedNeighbor.jarak))
+                {
+                    if (updateJarakDialogue.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                    {
+                        selectedNeighbor.jarak = updateJarakDialogue.jarak;
+                    }
+                }
                 populateSelectedNodeDataToList();
             }
         }

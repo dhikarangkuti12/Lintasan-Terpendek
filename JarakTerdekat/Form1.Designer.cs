@@ -29,10 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Root");
-            this.wpfHost = new System.Windows.Forms.Integration.ElementHost();
-            this.but_generate = new System.Windows.Forms.Button();
-            this.but_reload = new System.Windows.Forms.Button();
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Root");
             this.materialTabSelector1 = new MaterialSkin.Controls.MaterialTabSelector();
             this.materialTabControl1 = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -44,6 +41,9 @@
             this.materialFlatButton6 = new MaterialSkin.Controls.MaterialFlatButton();
             this.materialFlatButton5 = new MaterialSkin.Controls.MaterialFlatButton();
             this.materialFlatButton4 = new MaterialSkin.Controls.MaterialFlatButton();
+            this.wpfHost = new System.Windows.Forms.Integration.ElementHost();
+            this.but_generate = new System.Windows.Forms.Button();
+            this.but_reload = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel_nodeProperty = new System.Windows.Forms.Panel();
@@ -61,10 +61,6 @@
             this.btn_tambahNode = new MaterialSkin.Controls.MaterialRaisedButton();
             this.txtField_nodeName = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.treeView1 = new System.Windows.Forms.TreeView();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.materialButton1 = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.materialRaisedButton1 = new MaterialSkin.Controls.MaterialRaisedButton();
             this.materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
             this.materialTabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -73,44 +69,7 @@
             this.panel5.SuspendLayout();
             this.panel_nodeProperty.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.tabPage5.SuspendLayout();
-            this.panel6.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // wpfHost
-            // 
-            this.wpfHost.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.wpfHost.BackColor = System.Drawing.Color.White;
-            this.wpfHost.Location = new System.Drawing.Point(245, 3);
-            this.wpfHost.Name = "wpfHost";
-            this.wpfHost.Size = new System.Drawing.Size(844, 442);
-            this.wpfHost.TabIndex = 0;
-            this.wpfHost.Text = "elementHost1";
-            this.wpfHost.Child = null;
-            // 
-            // but_generate
-            // 
-            this.but_generate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.but_generate.Image = ((System.Drawing.Image)(resources.GetObject("but_generate.Image")));
-            this.but_generate.Location = new System.Drawing.Point(1095, 6);
-            this.but_generate.Name = "but_generate";
-            this.but_generate.Size = new System.Drawing.Size(65, 65);
-            this.but_generate.TabIndex = 1;
-            this.but_generate.UseVisualStyleBackColor = true;
-            this.but_generate.Click += new System.EventHandler(this.but_generate_Click);
-            // 
-            // but_reload
-            // 
-            this.but_reload.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.but_reload.Image = ((System.Drawing.Image)(resources.GetObject("but_reload.Image")));
-            this.but_reload.Location = new System.Drawing.Point(1095, 77);
-            this.but_reload.Name = "but_reload";
-            this.but_reload.Size = new System.Drawing.Size(65, 65);
-            this.but_reload.TabIndex = 2;
-            this.but_reload.UseVisualStyleBackColor = true;
-            this.but_reload.Click += new System.EventHandler(this.but_reload_Click);
             // 
             // materialTabSelector1
             // 
@@ -121,7 +80,7 @@
             this.materialTabSelector1.Location = new System.Drawing.Point(-2, 63);
             this.materialTabSelector1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialTabSelector1.Name = "materialTabSelector1";
-            this.materialTabSelector1.Size = new System.Drawing.Size(1174, 48);
+            this.materialTabSelector1.Size = new System.Drawing.Size(1174, 58);
             this.materialTabSelector1.TabIndex = 19;
             this.materialTabSelector1.Text = "materialTabSelector1";
             // 
@@ -132,7 +91,6 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.materialTabControl1.Controls.Add(this.tabPage1);
             this.materialTabControl1.Controls.Add(this.tabPage2);
-            this.materialTabControl1.Controls.Add(this.tabPage5);
             this.materialTabControl1.Depth = 0;
             this.materialTabControl1.Location = new System.Drawing.Point(-2, 117);
             this.materialTabControl1.MouseState = MaterialSkin.MouseState.HOVER;
@@ -260,6 +218,41 @@
             this.materialFlatButton4.Text = "Tentukan Rute";
             this.materialFlatButton4.UseVisualStyleBackColor = true;
             // 
+            // wpfHost
+            // 
+            this.wpfHost.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.wpfHost.BackColor = System.Drawing.Color.White;
+            this.wpfHost.Location = new System.Drawing.Point(245, 3);
+            this.wpfHost.Name = "wpfHost";
+            this.wpfHost.Size = new System.Drawing.Size(844, 442);
+            this.wpfHost.TabIndex = 0;
+            this.wpfHost.Text = "elementHost1";
+            this.wpfHost.Child = null;
+            // 
+            // but_generate
+            // 
+            this.but_generate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.but_generate.Image = ((System.Drawing.Image)(resources.GetObject("but_generate.Image")));
+            this.but_generate.Location = new System.Drawing.Point(1095, 6);
+            this.but_generate.Name = "but_generate";
+            this.but_generate.Size = new System.Drawing.Size(65, 65);
+            this.but_generate.TabIndex = 1;
+            this.but_generate.UseVisualStyleBackColor = true;
+            this.but_generate.Click += new System.EventHandler(this.but_generate_Click);
+            // 
+            // but_reload
+            // 
+            this.but_reload.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.but_reload.Image = ((System.Drawing.Image)(resources.GetObject("but_reload.Image")));
+            this.but_reload.Location = new System.Drawing.Point(1095, 77);
+            this.but_reload.Name = "but_reload";
+            this.but_reload.Size = new System.Drawing.Size(65, 65);
+            this.but_reload.TabIndex = 2;
+            this.but_reload.UseVisualStyleBackColor = true;
+            this.but_reload.Click += new System.EventHandler(this.but_reload_Click);
+            // 
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.White;
@@ -379,6 +372,7 @@
             this.listview_nodeNeighbors.TabIndex = 28;
             this.listview_nodeNeighbors.UseCompatibleStateImageBehavior = false;
             this.listview_nodeNeighbors.View = System.Windows.Forms.View.Details;
+            this.listview_nodeNeighbors.DoubleClick += new System.EventHandler(this.listview_nodeNeighbors_DoubleClick);
             // 
             // columnHeader1
             // 
@@ -396,11 +390,11 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.materialDivider3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialDivider3.Depth = 0;
-            this.materialDivider3.Location = new System.Drawing.Point(584, 3);
+            this.materialDivider3.Location = new System.Drawing.Point(586, 17);
             this.materialDivider3.Margin = new System.Windows.Forms.Padding(0);
             this.materialDivider3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialDivider3.Name = "materialDivider3";
-            this.materialDivider3.Size = new System.Drawing.Size(1, 434);
+            this.materialDivider3.Size = new System.Drawing.Size(1, 428);
             this.materialDivider3.TabIndex = 21;
             this.materialDivider3.TabStop = false;
             this.materialDivider3.Text = "materialDivider3";
@@ -472,62 +466,13 @@
             this.treeView1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.treeView1.Location = new System.Drawing.Point(3, 16);
             this.treeView1.Name = "treeView1";
-            treeNode1.Name = "Node0";
-            treeNode1.Text = "Root";
+            treeNode3.Name = "Node0";
+            treeNode3.Text = "Root";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode1});
+            treeNode3});
             this.treeView1.Size = new System.Drawing.Size(195, 426);
             this.treeView1.TabIndex = 5;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
-            // 
-            // tabPage5
-            // 
-            this.tabPage5.Controls.Add(this.panel6);
-            this.tabPage5.Location = new System.Drawing.Point(4, 22);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(1166, 451);
-            this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "Setting";
-            this.tabPage5.UseVisualStyleBackColor = true;
-            // 
-            // panel6
-            // 
-            this.panel6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel6.Controls.Add(this.materialButton1);
-            this.panel6.Controls.Add(this.materialRaisedButton1);
-            this.panel6.Location = new System.Drawing.Point(0, 0);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1166, 451);
-            this.panel6.TabIndex = 24;
-            // 
-            // materialButton1
-            // 
-            this.materialButton1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.materialButton1.Depth = 0;
-            this.materialButton1.Location = new System.Drawing.Point(444, 178);
-            this.materialButton1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialButton1.Name = "materialButton1";
-            this.materialButton1.Primary = true;
-            this.materialButton1.Size = new System.Drawing.Size(135, 36);
-            this.materialButton1.TabIndex = 23;
-            this.materialButton1.Text = "Ganti Theme";
-            this.materialButton1.UseVisualStyleBackColor = true;
-            // 
-            // materialRaisedButton1
-            // 
-            this.materialRaisedButton1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.materialRaisedButton1.Depth = 0;
-            this.materialRaisedButton1.Location = new System.Drawing.Point(585, 178);
-            this.materialRaisedButton1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialRaisedButton1.Name = "materialRaisedButton1";
-            this.materialRaisedButton1.Primary = true;
-            this.materialRaisedButton1.Size = new System.Drawing.Size(179, 36);
-            this.materialRaisedButton1.TabIndex = 22;
-            this.materialRaisedButton1.Text = "Ganti color scheme";
-            this.materialRaisedButton1.UseVisualStyleBackColor = true;
             // 
             // materialDivider1
             // 
@@ -535,11 +480,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.materialDivider1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialDivider1.Depth = 0;
-            this.materialDivider1.Location = new System.Drawing.Point(11, 597);
+            this.materialDivider1.Location = new System.Drawing.Point(-2, 599);
             this.materialDivider1.Margin = new System.Windows.Forms.Padding(0);
             this.materialDivider1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialDivider1.Name = "materialDivider1";
-            this.materialDivider1.Size = new System.Drawing.Size(1162, 1);
+            this.materialDivider1.Size = new System.Drawing.Size(1175, 1);
             this.materialDivider1.TabIndex = 23;
             this.materialDivider1.TabStop = false;
             this.materialDivider1.Text = "materialDivider1";
@@ -554,7 +499,7 @@
             this.Controls.Add(this.materialTabControl1);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "GraphX WF Interop Sample Project v1.0";
+            this.Text = "Penghitung Rute Terdekat";
             this.materialTabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
@@ -563,26 +508,15 @@
             this.panel5.ResumeLayout(false);
             this.panel_nodeProperty.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
-            this.tabPage5.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Integration.ElementHost wpfHost;
-        private System.Windows.Forms.Button but_generate;
-        private System.Windows.Forms.Button but_reload;
         private MaterialSkin.Controls.MaterialTabSelector materialTabSelector1;
+        private MaterialSkin.Controls.MaterialDivider materialDivider1;
         private MaterialSkin.Controls.MaterialTabControl materialTabControl1;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TabPage tabPage5;
-        private System.Windows.Forms.Panel panel6;
-        private MaterialSkin.Controls.MaterialRaisedButton materialButton1;
-        private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton1;
-        private MaterialSkin.Controls.MaterialDivider materialDivider1;
         private MaterialSkin.Controls.MaterialDivider materialDivider4;
         private System.Windows.Forms.Panel panel1;
         private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton2;
@@ -591,8 +525,13 @@
         private MaterialSkin.Controls.MaterialFlatButton materialFlatButton6;
         private MaterialSkin.Controls.MaterialFlatButton materialFlatButton5;
         private MaterialSkin.Controls.MaterialFlatButton materialFlatButton4;
+        private System.Windows.Forms.Integration.ElementHost wpfHost;
+        private System.Windows.Forms.Button but_generate;
+        private System.Windows.Forms.Button but_reload;
+        private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel_nodeProperty;
+        private MaterialSkin.Controls.MaterialDivider materialDivider6;
         private MaterialSkin.Controls.MaterialRaisedButton btn_deleteSelectedNode;
         private MaterialSkin.Controls.MaterialDivider materialDivider5;
         private MaterialSkin.Controls.MaterialRaisedButton btn_tambahTetangga;
@@ -606,7 +545,6 @@
         private MaterialSkin.Controls.MaterialRaisedButton btn_tambahNode;
         private MaterialSkin.Controls.MaterialSingleLineTextField txtField_nodeName;
         private System.Windows.Forms.TreeView treeView1;
-        private MaterialSkin.Controls.MaterialDivider materialDivider6;
     }
 }
 

@@ -51,6 +51,11 @@ namespace JarakTerdekat
             availableNeighbors.Add(allNodes[getIndexByName(neighborName, allNodes)]);
         }
 
+        public Neighbor getNeighborByName(string name)
+        {
+            return neighborsCollection.Nodes[getNeighborIndexByName(name, neighborsCollection.Nodes)];
+        }
+
         protected int getIndexByName(string nodeName, List<Node> Collection)
         {
             int index = -1;
