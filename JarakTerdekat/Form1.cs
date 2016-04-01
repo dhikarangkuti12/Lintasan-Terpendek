@@ -128,6 +128,7 @@ namespace JarakTerdekat
                 updateAvailableNeigborsComboBox();
                 panel_nodeProperty.Visible = true;
                 nodeCollection.selectedNode = nodeCollection.Nodes[nodeCollection.getIndexByName(treeView1.SelectedNode.Text)];
+                populateSelectedNodeDataToList();
             }
             else
             {
@@ -146,11 +147,30 @@ namespace JarakTerdekat
 
         private void btn_tambahTetangga_Click(object sender, EventArgs e)
         {
-            var selectedNeighborName = comboBox_neighbors.SelectedItem.ToString();
-            var selectedNeighbor = nodeCollection.Nodes[nodeCollection.getIndexByName(selectedNeighborName)];
-            listview_nodeNeighbors.Items.Add(new ListViewItem(new[] { selectedNeighborName, "0" }));
+            if(comboBox_neighbors.Text != "")
+            {
+                var selectedNeighborName = comboBox_neighbors.Text;
+                var selectedNeighbor = nodeCollection.Nodes[nodeCollection.getIndexByName(selectedNeighborName)];
 
-            nodeCollection.selectedNode.addNeighbor(selectedNeighborName);
+                listview_nodeNeighbors.Items.Add(new ListViewItem(new[] { selectedNeighborName, "0" }));
+                nodeCollection.selectedNode.addNeighbor(selectedNeighborName);
+
+                updateAvailableNeigborsComboBox();
+                comboBox_neighbors.Text = "";
+            }
+        }
+
+        private void populateSelectedNodeDataToList()
+        {
+            listview_nodeNeighbors.Items.Clear();
+
+            var selectedNode = nodeCollection.Nodes[nodeCollection.getIndexByName(treeView1.SelectedNode.Text)];
+            var nodeNeighbors = selectedNode.neighborsCollection.Nodes;
+
+            foreach(var neighbor in nodeNeighbors)
+            {
+                listview_nodeNeighbors.Items.Add(new ListViewItem(new[] { neighbor.node.name, neighbor.jarak.ToString() }));
+            }
         }
     }
 }
