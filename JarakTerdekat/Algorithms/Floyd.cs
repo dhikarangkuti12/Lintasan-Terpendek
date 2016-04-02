@@ -14,9 +14,9 @@ namespace JarakTerdekat
         public int N;
 
 
-        public void init(List<List<double>> inputTable, int N)
+        public void init(List<List<double>> inputTable, double N)
         {
-            this.N = N;
+            this.N = (int)N;
             P = new List<List<double>>();
             M = inputTable;
 

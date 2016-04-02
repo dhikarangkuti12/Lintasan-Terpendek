@@ -21,7 +21,7 @@ namespace JarakTerdekat
 
         public List<Node> availableNeighbors;
         public NeighborCollection neighborsCollection;
-        public List<Node> allNodes;
+        public NodeCollection allNodes;
 
         public Node(string name)
         {
@@ -32,23 +32,23 @@ namespace JarakTerdekat
 
         public void addNeighbor(string neighborName)
         {
-            int index = getIndexByName(neighborName, allNodes);
+            int index = getIndexByName(neighborName, allNodes.Nodes);
 
             if(index != -1)
             {
-                neighborsCollection.Nodes.Add(new Neighbor(allNodes[index], 0));
+                neighborsCollection.Nodes.Add(new Neighbor(allNodes.Nodes[index], 0));
                 foreach(var node in availableNeighbors)
                 {
                     Console.WriteLine(node.name);
                 }
-                availableNeighbors.RemoveAt(getIndexByName(allNodes[index].name, availableNeighbors));
+                availableNeighbors.RemoveAt(getIndexByName(allNodes.Nodes[index].name, availableNeighbors));
             }
         }
 
         public void removeNeighbor(string neighborName)
         {
             neighborsCollection.Nodes.RemoveAt(getNeighborIndexByName(neighborName, neighborsCollection.Nodes));
-            availableNeighbors.Add(allNodes[getIndexByName(neighborName, allNodes)]);
+            availableNeighbors.Add(allNodes.Nodes[getIndexByName(neighborName, allNodes.Nodes)]);
         }
 
         public Neighbor getNeighborByName(string name)
@@ -123,6 +123,24 @@ namespace JarakTerdekat
         public NeighborCollection()
         {
             Nodes = new List<Neighbor>();
+        }
+
+        public int getNeighborIndexByName(string nodeName)
+        {
+            int index = -1;
+            int count = 0;
+            foreach (var node in Nodes)
+            {
+                if (node.node.name == nodeName)
+                {
+                    index = count;
+                    break;
+                }
+
+                count++;
+            }
+
+            return index;
         }
     }
 }

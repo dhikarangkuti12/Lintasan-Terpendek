@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Root");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Root");
             this.materialTabSelector1 = new MaterialSkin.Controls.MaterialTabSelector();
             this.materialTabControl1 = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -62,6 +62,8 @@
             this.txtField_nodeName = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
+            this.btn_saveNodes = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.btn_loadNodes = new MaterialSkin.Controls.MaterialRaisedButton();
             this.materialTabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -267,7 +269,9 @@
             // 
             // panel5
             // 
+            this.panel5.Controls.Add(this.btn_loadNodes);
             this.panel5.Controls.Add(this.panel_nodeProperty);
+            this.panel5.Controls.Add(this.btn_saveNodes);
             this.panel5.Controls.Add(this.materialDivider3);
             this.panel5.Controls.Add(this.materialDivider2);
             this.panel5.Controls.Add(this.panel4);
@@ -423,14 +427,14 @@
             this.panel4.Controls.Add(this.txtField_nodeName);
             this.panel4.Location = new System.Drawing.Point(588, 3);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(522, 439);
+            this.panel4.Size = new System.Drawing.Size(425, 439);
             this.panel4.TabIndex = 6;
             // 
             // btn_tambahNode
             // 
             this.btn_tambahNode.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_tambahNode.Depth = 0;
-            this.btn_tambahNode.Location = new System.Drawing.Point(285, 216);
+            this.btn_tambahNode.Location = new System.Drawing.Point(236, 216);
             this.btn_tambahNode.MouseState = MaterialSkin.MouseState.HOVER;
             this.btn_tambahNode.Name = "btn_tambahNode";
             this.btn_tambahNode.Primary = true;
@@ -445,7 +449,7 @@
             this.txtField_nodeName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtField_nodeName.Depth = 0;
             this.txtField_nodeName.Hint = "Nama Node";
-            this.txtField_nodeName.Location = new System.Drawing.Point(78, 187);
+            this.txtField_nodeName.Location = new System.Drawing.Point(29, 187);
             this.txtField_nodeName.MaxLength = 32767;
             this.txtField_nodeName.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtField_nodeName.Name = "txtField_nodeName";
@@ -467,10 +471,10 @@
             this.treeView1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.treeView1.Location = new System.Drawing.Point(3, 16);
             this.treeView1.Name = "treeView1";
-            treeNode1.Name = "Node0";
-            treeNode1.Text = "Root";
+            treeNode6.Name = "Node0";
+            treeNode6.Text = "Root";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode1});
+            treeNode6});
             this.treeView1.Size = new System.Drawing.Size(195, 426);
             this.treeView1.TabIndex = 5;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
@@ -490,7 +494,37 @@
             this.materialDivider1.TabStop = false;
             this.materialDivider1.Text = "materialDivider1";
             // 
-            // MainForm
+            // btn_saveNodes
+            // 
+            this.btn_saveNodes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_saveNodes.Depth = 0;
+            this.btn_saveNodes.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_saveNodes.Location = new System.Drawing.Point(1089, 419);
+            this.btn_saveNodes.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btn_saveNodes.Name = "btn_saveNodes";
+            this.btn_saveNodes.Primary = true;
+            this.btn_saveNodes.Size = new System.Drawing.Size(68, 23);
+            this.btn_saveNodes.TabIndex = 24;
+            this.btn_saveNodes.Text = "Save";
+            this.btn_saveNodes.UseVisualStyleBackColor = true;
+            this.btn_saveNodes.Click += new System.EventHandler(this.btn_saveNodes_Click);
+            // 
+            // btn_loadNodes
+            // 
+            this.btn_loadNodes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_loadNodes.Depth = 0;
+            this.btn_loadNodes.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_loadNodes.Location = new System.Drawing.Point(1015, 419);
+            this.btn_loadNodes.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btn_loadNodes.Name = "btn_loadNodes";
+            this.btn_loadNodes.Primary = true;
+            this.btn_loadNodes.Size = new System.Drawing.Size(68, 23);
+            this.btn_loadNodes.TabIndex = 25;
+            this.btn_loadNodes.Text = "Load";
+            this.btn_loadNodes.UseVisualStyleBackColor = true;
+            this.btn_loadNodes.Click += new System.EventHandler(this.btn_loadNodes_Click);
+            // 
+            // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -498,7 +532,7 @@
             this.Controls.Add(this.materialDivider1);
             this.Controls.Add(this.materialTabSelector1);
             this.Controls.Add(this.materialTabControl1);
-            this.Name = "MainForm";
+            this.Name = "MainWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Penghitung Rute Terdekat";
             this.materialTabControl1.ResumeLayout(false);
@@ -546,6 +580,8 @@
         private MaterialSkin.Controls.MaterialRaisedButton btn_tambahNode;
         private MaterialSkin.Controls.MaterialSingleLineTextField txtField_nodeName;
         private System.Windows.Forms.TreeView treeView1;
+        private MaterialSkin.Controls.MaterialRaisedButton btn_saveNodes;
+        private MaterialSkin.Controls.MaterialRaisedButton btn_loadNodes;
     }
 }
 

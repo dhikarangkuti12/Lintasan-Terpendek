@@ -19,7 +19,7 @@ namespace JarakTerdekat
         public void addNode(Node newNode)
         {
             Nodes.Add(newNode);
-            Nodes[Nodes.Count - 1].allNodes = Nodes;
+            Nodes[Nodes.Count - 1].allNodes = this;
             addPreviousNodesToAvailableNeighobor();
             addToNodesAvailableNeigbor(Nodes.Count - 1);
         }
@@ -36,6 +36,18 @@ namespace JarakTerdekat
             return false;
         }
 
+        public Node getNodeByName(string name)
+        {
+            var index = getIndexByName(name);
+
+            if(index != -1)
+            {
+                return Nodes[index];
+            }
+
+            return null;
+        }
+
         public int getIndexByName(string name)
         {
             int index = -1;
@@ -50,6 +62,15 @@ namespace JarakTerdekat
                 count++;
             }
             return index;
+        }
+
+        public PlainNodeCollection serialize()
+        {
+            PlainNodeCollection plainNodesCollection = new PlainNodeCollection();
+
+            plainNodesCollection.populateNodes(Nodes);
+
+            return plainNodesCollection;
         }
 
         protected void addPreviousNodesToAvailableNeighobor()

@@ -15,13 +15,13 @@ using MaterialSkin.Controls;
 namespace JarakTerdekat
 {
 
-    public partial class inputJarakDialogue : MaterialForm
+    public partial class textInputDialogue : MaterialForm
     {
         private readonly MaterialSkinManager materialSkinManager;
 
-        public double jarak;
+        public string inputText;
 
-        public inputJarakDialogue(double currentJarak)
+        public textInputDialogue(string title, string hint, string currentValue)
         {
             materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
@@ -30,14 +30,16 @@ namespace JarakTerdekat
 
             InitializeComponent();
 
-            txtField_jarakInput.Text = currentJarak.ToString();
+            this.Text = title;
+            txtField_jarakInput.Text = currentValue;
+            txtField_jarakInput.Hint = hint;
         }
 
         private void btn_updateJarak_Click(object sender, EventArgs e)
         {
             if(txtField_jarakInput.Text != "")
             {
-                jarak = double.Parse(txtField_jarakInput.Text);
+                inputText = txtField_jarakInput.Text;
             }
         }
     }

@@ -1,6 +1,6 @@
 ﻿namespace JarakTerdekat
 {
-    partial class inputJarakDialogue
+    partial class textInputDialogue
     {
         /// <summary>
         /// Required designer variable.
@@ -36,7 +36,7 @@
             // 
             this.txtField_jarakInput.BackColor = System.Drawing.Color.White;
             this.txtField_jarakInput.Depth = 0;
-            this.txtField_jarakInput.Hint = "Jarak";
+            this.txtField_jarakInput.Hint = "Hint";
             this.txtField_jarakInput.Location = new System.Drawing.Point(12, 80);
             this.txtField_jarakInput.MaxLength = 32767;
             this.txtField_jarakInput.MouseState = MaterialSkin.MouseState.HOVER;
@@ -60,7 +60,7 @@
             this.btn_updateJarak.Primary = true;
             this.btn_updateJarak.Size = new System.Drawing.Size(154, 30);
             this.btn_updateJarak.TabIndex = 1;
-            this.btn_updateJarak.Text = "Update";
+            this.btn_updateJarak.Text = "Ok";
             this.btn_updateJarak.UseVisualStyleBackColor = true;
             this.btn_updateJarak.Click += new System.EventHandler(this.btn_updateJarak_Click);
             // 
@@ -75,7 +75,7 @@
             this.MinimizeBox = false;
             this.Name = "inputJarakDialogue";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Ubah Jarak";
+            this.Text = "Title";
             this.ResumeLayout(false);
 
         }
