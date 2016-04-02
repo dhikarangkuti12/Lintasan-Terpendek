@@ -13,8 +13,6 @@ using MaterialSkin.Controls;
 
 using System.Collections.Generic;
 
-using GraphX.PCL.Logic.Algorithms.LayoutAlgorithms;
-
 
 namespace JarakTerdekat
 {
@@ -228,16 +226,50 @@ namespace JarakTerdekat
 
         private void btn_calculateShortestPath_Click(object sender, EventArgs e)
         {
+            //JsonSerialization.WriteToJsonFile("D:\\Code\\graph.json", nodeCollection.Nodes);
             int inf = 9999999;
-            List<int[]> lists = new List<int[]>();
-            lists.Add(new int[] { 0, 10, 1, 8, inf, inf });
-            lists.Add(new int[] { 10, 0, 12, 20, inf, inf });
-            lists.Add(new int[] { 1, 12, 0, 15, 1, 5 });
-            lists.Add(new int[] { 8, 20, 15, 0, 8, 9 });
-            lists.Add(new int[] { inf, inf, 1, 8, 0, 1 });
-            lists.Add(new int[] { inf, inf, 5, 9, 1, 0 });
+            //List<int[]> lists = new List<int[]>();
+            //lists.Add(new int[] { 0, 10, 1, 8, inf, inf });
+            //lists.Add(new int[] { 10, 0, 12, 20, inf, inf });
+            //lists.Add(new int[] { 1, 12, 0, 15, 1, 5 });
+            //lists.Add(new int[] { 8, 20, 15, 0, 8, 9 });
+            //lists.Add(new int[] { inf, inf, 1, 8, 0, 1 });
+            //lists.Add(new int[] { inf, inf, 5, 9, 1, 0 });
 
-            floyd.init(lists, 6);
+            var pathTable = new List<List<double>>();
+
+
+            for (int i=0; i<nodeCollection.Nodes.Count; i++)
+            {
+                pathTable.Add(new List<double>());
+
+                var from = nodeCollection.Nodes[i];
+                var fromNeighbors = from.neighborsCollection.Nodes;
+
+                for (int j=0; j<nodeCollection.Nodes.Count; j++)
+                {
+                    var to = nodeCollection.Nodes[j];
+
+                    if (to == from )
+                    {
+                        pathTable[i].Add(0);
+                        continue;
+                    }
+
+                    foreach(var fromNeighbor in fromNeighbors)
+                    {
+                        if(to.name == fromNeighbor.node.name)
+                        {
+                            pathTable[i].Add(fromNeighbor.jarak);
+                            continue;
+                        }
+                    }
+
+                    pathTable[i].Add(inf);
+                }
+            }
+
+            floyd.init(pathTable, 6);
             floyd.calculateShortestPath(0, 5);
         }
     }

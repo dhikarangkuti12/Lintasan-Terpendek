@@ -5,8 +5,6 @@ VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "JarakTerdekat", "JarakTerdekat", "{D9664367-2C2C-46B2-81A6-26CDCD087B29}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Externals", "Externals", "{C7DE85B0-A017-4DF7-AE7A-A1197B5D0D47}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphX.WPF.Controls", "GraphX.Controls\GraphX.WPF.Controls.csproj", "{D2E33FEE-6689-4BB4-A95C-1B5C327A1E8F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JarakTerdekat", "JarakTerdekat\JarakTerdekat.csproj", "{E8B92A96-39FD-441D-9925-34A6F6DC8BEE}"

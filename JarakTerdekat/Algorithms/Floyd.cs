@@ -9,26 +9,24 @@ namespace JarakTerdekat
     public class Floyd
     {
 
-        public List<List<int>> P;
-        public List<List<int>> M;
+        public List<List<double>> P;
+        public List<List<double>> M;
         public int N;
 
 
-        public void init(List<int[]> inputTable, int N)
+        public void init(List<List<double>> inputTable, int N)
         {
             this.N = N;
-            P = new List<List<int>>();
-            M = new List<List<int>>();
+            P = new List<List<double>>();
+            M = inputTable;
 
             for (int i = 0; i < N; i++)
             {
-                P.Add(new List<int>());
-                M.Add(new List<int>());
+                P.Add(new List<double>());
 
                 for (int j = 0; j < N; j++)
                 {
                     P[i].Add(0);
-                    M[i].Add(inputTable[i][j]);
                 }
             }
         }
@@ -43,7 +41,7 @@ namespace JarakTerdekat
             printMatrix(P);
         }
 
-        public List<List<int>> FloydAlgo(List<List<int>> M)
+        public List<List<double>> FloydAlgo(List<List<double>> M)
         {
             for (int k = 0; k < N; k++)
             {
@@ -74,7 +72,7 @@ namespace JarakTerdekat
             return i;
         }
 
-        public void printMatrix(List<List<int>> Matrix)
+        public void printMatrix(List<List<double>> Matrix)
         {
             Console.Write("\n\t");
             for (int j = 0; j < N; j++)
