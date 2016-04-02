@@ -13,17 +13,23 @@ using MaterialSkin.Controls;
 
 using System.Collections.Generic;
 
+using GraphX.PCL.Logic.Algorithms.LayoutAlgorithms;
+
 
 namespace JarakTerdekat
 {
-    public partial class Form1 : MaterialForm
+    public partial class MainWindow : MaterialForm
     {
         private readonly MaterialSkinManager materialSkinManager;
 
         private NodeCollection nodeCollection;
 
-        public Form1()
+        private Floyd floyd;
+
+        public MainWindow()
         {
+            floyd = new Floyd();
+
             nodeCollection = new NodeCollection();
 
             materialSkinManager = MaterialSkinManager.Instance;
@@ -99,7 +105,8 @@ namespace JarakTerdekat
                     foreach(var neighbor in nodeCollection.Nodes[i].neighborsCollection.Nodes)
                     {
                         var neighborIndex = 
-                        dataEdge = new DataEdge(vlist[i], vlist[nodeCollection.getIndexByName(neighbor.node.name)]) { Text = string.Format("{0} -- {1}", vlist[i], vlist[nodeCollection.getIndexByName(neighbor.node.name)]) };
+                        dataEdge = new DataEdge(vlist[i], vlist[nodeCollection.getIndexByName(neighbor.node.name)]);
+                        dataEdge.Text = "5";
                         dataGraph.AddEdge(dataEdge);
                     }
                 }
@@ -217,6 +224,21 @@ namespace JarakTerdekat
                 }
                 populateSelectedNodeDataToList();
             }
+        }
+
+        private void btn_calculateShortestPath_Click(object sender, EventArgs e)
+        {
+            int inf = 9999999;
+            List<int[]> lists = new List<int[]>();
+            lists.Add(new int[] { 0, 10, 1, 8, inf, inf });
+            lists.Add(new int[] { 10, 0, 12, 20, inf, inf });
+            lists.Add(new int[] { 1, 12, 0, 15, 1, 5 });
+            lists.Add(new int[] { 8, 20, 15, 0, 8, 9 });
+            lists.Add(new int[] { inf, inf, 1, 8, 0, 1 });
+            lists.Add(new int[] { inf, inf, 5, 9, 1, 0 });
+
+            floyd.init(lists, 6);
+            floyd.calculateShortestPath(0, 5);
         }
     }
 }

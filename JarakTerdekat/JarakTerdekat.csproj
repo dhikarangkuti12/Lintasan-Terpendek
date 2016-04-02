@@ -121,30 +121,31 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Algorithms\Floyd.cs" />
+    <Compile Include="MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="MainWindow.Designer.cs">
+      <DependentUpon>MainWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="inputJarakDialogue.cs">
+    <Compile Include="Forms\inputJarakDialogue.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="inputJarakDialogue.Designer.cs">
+    <Compile Include="Forms\inputJarakDialogue.Designer.cs">
       <DependentUpon>inputJarakDialogue.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\DataEdge.cs" />
     <Compile Include="Models\DataVertex.cs" />
     <Compile Include="Models\GraphAreaExample.cs" />
     <Compile Include="Models\GraphExample.cs" />
-    <Compile Include="NodeCollection.cs" />
-    <Compile Include="Nodes.cs" />
+    <Compile Include="Controllers\NodeCollection.cs" />
+    <Compile Include="Models\Nodes.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="MainWindow.resx">
+      <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="inputJarakDialogue.resx">
+    <EmbeddedResource Include="Forms\inputJarakDialogue.resx">
       <DependentUpon>inputJarakDialogue.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -208,6 +209,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

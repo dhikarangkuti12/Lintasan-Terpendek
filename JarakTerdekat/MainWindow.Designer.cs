@@ -1,6 +1,6 @@
 ﻿namespace JarakTerdekat
 {
-    partial class Form1
+    partial class MainWindow
     {
         /// <summary>
         /// Required designer variable.
@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Root");
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Root");
             this.materialTabSelector1 = new MaterialSkin.Controls.MaterialTabSelector();
             this.materialTabControl1 = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.materialDivider4 = new MaterialSkin.Controls.MaterialDivider();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.materialRaisedButton2 = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.btn_calculateShortestPath = new MaterialSkin.Controls.MaterialRaisedButton();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.materialFlatButton6 = new MaterialSkin.Controls.MaterialFlatButton();
@@ -131,7 +131,7 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.materialRaisedButton2);
+            this.panel1.Controls.Add(this.btn_calculateShortestPath);
             this.panel1.Controls.Add(this.comboBox4);
             this.panel1.Controls.Add(this.comboBox3);
             this.panel1.Controls.Add(this.materialFlatButton6);
@@ -142,17 +142,18 @@
             this.panel1.Size = new System.Drawing.Size(229, 380);
             this.panel1.TabIndex = 3;
             // 
-            // materialRaisedButton2
+            // btn_calculateShortestPath
             // 
-            this.materialRaisedButton2.Depth = 0;
-            this.materialRaisedButton2.Location = new System.Drawing.Point(83, 136);
-            this.materialRaisedButton2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialRaisedButton2.Name = "materialRaisedButton2";
-            this.materialRaisedButton2.Primary = true;
-            this.materialRaisedButton2.Size = new System.Drawing.Size(106, 32);
-            this.materialRaisedButton2.TabIndex = 23;
-            this.materialRaisedButton2.Text = "Go";
-            this.materialRaisedButton2.UseVisualStyleBackColor = true;
+            this.btn_calculateShortestPath.Depth = 0;
+            this.btn_calculateShortestPath.Location = new System.Drawing.Point(83, 136);
+            this.btn_calculateShortestPath.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btn_calculateShortestPath.Name = "btn_calculateShortestPath";
+            this.btn_calculateShortestPath.Primary = true;
+            this.btn_calculateShortestPath.Size = new System.Drawing.Size(106, 32);
+            this.btn_calculateShortestPath.TabIndex = 23;
+            this.btn_calculateShortestPath.Text = "Go";
+            this.btn_calculateShortestPath.UseVisualStyleBackColor = true;
+            this.btn_calculateShortestPath.Click += new System.EventHandler(this.btn_calculateShortestPath_Click);
             // 
             // comboBox4
             // 
@@ -466,10 +467,10 @@
             this.treeView1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.treeView1.Location = new System.Drawing.Point(3, 16);
             this.treeView1.Name = "treeView1";
-            treeNode3.Name = "Node0";
-            treeNode3.Text = "Root";
+            treeNode1.Name = "Node0";
+            treeNode1.Text = "Root";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode3});
+            treeNode1});
             this.treeView1.Size = new System.Drawing.Size(195, 426);
             this.treeView1.TabIndex = 5;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
@@ -489,7 +490,7 @@
             this.materialDivider1.TabStop = false;
             this.materialDivider1.Text = "materialDivider1";
             // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -497,7 +498,7 @@
             this.Controls.Add(this.materialDivider1);
             this.Controls.Add(this.materialTabSelector1);
             this.Controls.Add(this.materialTabControl1);
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Penghitung Rute Terdekat";
             this.materialTabControl1.ResumeLayout(false);
@@ -519,7 +520,7 @@
         private System.Windows.Forms.TabPage tabPage1;
         private MaterialSkin.Controls.MaterialDivider materialDivider4;
         private System.Windows.Forms.Panel panel1;
-        private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton2;
+        private MaterialSkin.Controls.MaterialRaisedButton btn_calculateShortestPath;
         private System.Windows.Forms.ComboBox comboBox4;
         private System.Windows.Forms.ComboBox comboBox3;
         private MaterialSkin.Controls.MaterialFlatButton materialFlatButton6;
