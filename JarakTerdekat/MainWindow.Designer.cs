@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Root");
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Root");
             this.materialTabSelector1 = new MaterialSkin.Controls.MaterialTabSelector();
             this.materialTabControl1 = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -46,6 +46,7 @@
             this.but_reload = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.btn_loadNodes = new MaterialSkin.Controls.MaterialRaisedButton();
             this.panel_nodeProperty = new System.Windows.Forms.Panel();
             this.materialDivider6 = new MaterialSkin.Controls.MaterialDivider();
             this.btn_deleteSelectedNode = new MaterialSkin.Controls.MaterialRaisedButton();
@@ -55,6 +56,7 @@
             this.listview_nodeNeighbors = new MaterialSkin.Controls.MaterialListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btn_saveNodes = new MaterialSkin.Controls.MaterialRaisedButton();
             this.materialDivider3 = new MaterialSkin.Controls.MaterialDivider();
             this.materialDivider2 = new MaterialSkin.Controls.MaterialDivider();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -62,8 +64,6 @@
             this.txtField_nodeName = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
-            this.btn_saveNodes = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.btn_loadNodes = new MaterialSkin.Controls.MaterialRaisedButton();
             this.materialTabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -265,7 +265,7 @@
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(1166, 451);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Manage Node";
+            this.tabPage2.Text = "Manage Vertexs";
             // 
             // panel5
             // 
@@ -281,6 +281,21 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(1160, 445);
             this.panel5.TabIndex = 1;
+            // 
+            // btn_loadNodes
+            // 
+            this.btn_loadNodes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_loadNodes.Depth = 0;
+            this.btn_loadNodes.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_loadNodes.Location = new System.Drawing.Point(1015, 419);
+            this.btn_loadNodes.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btn_loadNodes.Name = "btn_loadNodes";
+            this.btn_loadNodes.Primary = true;
+            this.btn_loadNodes.Size = new System.Drawing.Size(68, 23);
+            this.btn_loadNodes.TabIndex = 25;
+            this.btn_loadNodes.Text = "Load";
+            this.btn_loadNodes.UseVisualStyleBackColor = true;
+            this.btn_loadNodes.Click += new System.EventHandler(this.btn_loadNodes_Click);
             // 
             // panel_nodeProperty
             // 
@@ -389,6 +404,21 @@
             this.columnHeader2.Text = "Jarak";
             this.columnHeader2.Width = 123;
             // 
+            // btn_saveNodes
+            // 
+            this.btn_saveNodes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_saveNodes.Depth = 0;
+            this.btn_saveNodes.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_saveNodes.Location = new System.Drawing.Point(1089, 419);
+            this.btn_saveNodes.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btn_saveNodes.Name = "btn_saveNodes";
+            this.btn_saveNodes.Primary = true;
+            this.btn_saveNodes.Size = new System.Drawing.Size(68, 23);
+            this.btn_saveNodes.TabIndex = 24;
+            this.btn_saveNodes.Text = "Save";
+            this.btn_saveNodes.UseVisualStyleBackColor = true;
+            this.btn_saveNodes.Click += new System.EventHandler(this.btn_saveNodes_Click);
+            // 
             // materialDivider3
             // 
             this.materialDivider3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -471,10 +501,10 @@
             this.treeView1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.treeView1.Location = new System.Drawing.Point(3, 16);
             this.treeView1.Name = "treeView1";
-            treeNode6.Name = "Node0";
-            treeNode6.Text = "Root";
+            treeNode1.Name = "Node0";
+            treeNode1.Text = "Root";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode6});
+            treeNode1});
             this.treeView1.Size = new System.Drawing.Size(195, 426);
             this.treeView1.TabIndex = 5;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
@@ -493,36 +523,6 @@
             this.materialDivider1.TabIndex = 23;
             this.materialDivider1.TabStop = false;
             this.materialDivider1.Text = "materialDivider1";
-            // 
-            // btn_saveNodes
-            // 
-            this.btn_saveNodes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_saveNodes.Depth = 0;
-            this.btn_saveNodes.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_saveNodes.Location = new System.Drawing.Point(1089, 419);
-            this.btn_saveNodes.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btn_saveNodes.Name = "btn_saveNodes";
-            this.btn_saveNodes.Primary = true;
-            this.btn_saveNodes.Size = new System.Drawing.Size(68, 23);
-            this.btn_saveNodes.TabIndex = 24;
-            this.btn_saveNodes.Text = "Save";
-            this.btn_saveNodes.UseVisualStyleBackColor = true;
-            this.btn_saveNodes.Click += new System.EventHandler(this.btn_saveNodes_Click);
-            // 
-            // btn_loadNodes
-            // 
-            this.btn_loadNodes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_loadNodes.Depth = 0;
-            this.btn_loadNodes.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_loadNodes.Location = new System.Drawing.Point(1015, 419);
-            this.btn_loadNodes.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btn_loadNodes.Name = "btn_loadNodes";
-            this.btn_loadNodes.Primary = true;
-            this.btn_loadNodes.Size = new System.Drawing.Size(68, 23);
-            this.btn_loadNodes.TabIndex = 25;
-            this.btn_loadNodes.Text = "Load";
-            this.btn_loadNodes.UseVisualStyleBackColor = true;
-            this.btn_loadNodes.Click += new System.EventHandler(this.btn_loadNodes_Click);
             // 
             // MainWindow
             // 

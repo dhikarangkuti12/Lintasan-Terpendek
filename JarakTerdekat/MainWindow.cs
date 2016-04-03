@@ -127,6 +127,11 @@ namespace JarakTerdekat
             _gArea.GenerateGraph(true);
             _gArea.SetVerticesDrag(true, true);
             _zoomctrl.ZoomToFill();
+
+            _gArea.SetEdgesHighlight(true, (GraphControlType)1);
+
+            _gArea.RelayoutGraph();
+            _gArea.ShowAllEdgesArrows(false);
         }
 
         private void but_reload_Click(object sender, EventArgs e)
@@ -232,7 +237,17 @@ namespace JarakTerdekat
 
         private void btn_calculateShortestPath_Click(object sender, EventArgs e)
         {
-            int inf = 9999999;
+
+            foreach (var item in _gArea.EdgesList)
+            {
+                HighlightBehaviour.SetHighlightControl(item.Value, (GraphControlType)1);
+                HighlightBehaviour.SetHighlighted(item.Value, true);
+            }
+
+
+            double inf = double.PositiveInfinity;
+
+            Console.WriteLine(inf);
 
             var pathTable = new List<List<double>>();
 
@@ -289,8 +304,6 @@ namespace JarakTerdekat
             {
                 PlainNodeCollection plainNodesCollection = JsonSerialization.ReadFromJsonFile<PlainNodeCollection>(sFileName);
 
-                Console.WriteLine(plainNodesCollection.plainNodes[0].name);
-
                 this.nodeCollection = plainNodesCollection.toNodeCollection();
 
                 treeView1.Nodes[0].Nodes.Clear();
@@ -303,7 +316,7 @@ namespace JarakTerdekat
 
         private void btn_saveNodes_Click(object sender, EventArgs e)
         {
-            string fileName = "default.json";
+            string fileName = "";
             using (textInputDialogue updateJarakDialogue = new textInputDialogue("Nama File", "Nama File", null))
             {
                 if (updateJarakDialogue.ShowDialog() == System.Windows.Forms.DialogResult.OK)
@@ -320,6 +333,9 @@ namespace JarakTerdekat
             {
                 Directory.CreateDirectory(path);
             }
+
+            if (fileName == "" || fileName == null)
+                fileName = "default";
 
             path = string.Format("{0}\\{1}.json", path, fileName);
 
