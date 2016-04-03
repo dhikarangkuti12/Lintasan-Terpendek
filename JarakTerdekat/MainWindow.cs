@@ -266,59 +266,67 @@ namespace JarakTerdekat
             if (!isGraphReady)
                 return;
 
-            BellmanFordAlgorithm bellman = new BellmanFordAlgorithm();
-            
-            if(cb_initialNode.Text != cb_endNode.Text)
+
+            if (cb_initialNode.Text == cb_endNode.Text)
             {
-                double inf = 9999999;
+                List<int> hasil = new List<int>();
+                hasil.Add(nodeCollection.getIndexByName(cb_endNode.Text));
+                highlightPath(hasil);
+                return;
+            }
 
-                Console.WriteLine(inf);
+            BellmanFordAlgorithm bellman = new BellmanFordAlgorithm();
 
-                var pathTable = new List<List<double>>();
 
-                for (int i = 0; i < nodeCollection.Nodes.Count; i++)
+            double inf = double.PositiveInfinity;
+
+            Console.WriteLine(inf);
+
+            var pathTable = new List<List<double>>();
+
+            for (int i = 0; i < nodeCollection.Nodes.Count; i++)
+            {
+                pathTable.Add(new List<double>());
+
+                var from = nodeCollection.Nodes[i];
+                var fromNeighbors = from.neighborsCollection;
+
+                for (int j = 0; j < nodeCollection.Nodes.Count; j++)
                 {
-                    pathTable.Add(new List<double>());
+                    var to = nodeCollection.Nodes[j];
 
-                    var from = nodeCollection.Nodes[i];
-                    var fromNeighbors = from.neighborsCollection;
-
-                    for (int j = 0; j < nodeCollection.Nodes.Count; j++)
+                    if (to.name == from.name)
                     {
-                        var to = nodeCollection.Nodes[j];
-
-                        if (to.name == from.name)
+                        pathTable[i].Add(0);
+                    }
+                    else
+                    {
+                        var index = fromNeighbors.getNeighborIndexByName(to.name);
+                        if (index != -1)
                         {
-                            pathTable[i].Add(0);
+                            pathTable[i].Add(fromNeighbors.Nodes[index].jarak);
                         }
                         else
                         {
-                            var index = fromNeighbors.getNeighborIndexByName(to.name);
-                            if (index != -1)
-                            {
-                                pathTable[i].Add(fromNeighbors.Nodes[index].jarak);
-                            }
-                            else
-                            {
-                                pathTable[i].Add(inf);
-                            }
+                            pathTable[i].Add(inf);
                         }
                     }
                 }
-
-                floyd.init(pathTable, (nodeCollection.Nodes.Count));
-                var fromIndex = nodeCollection.getIndexByName(cb_initialNode.Text);
-                var toIndex = nodeCollection.getIndexByName(cb_endNode.Text);
-
-                if(fromIndex > toIndex)
-                {
-                    var temp = fromIndex;
-                    fromIndex = toIndex;
-                    toIndex = temp;
-                }
-                List<int> result = floyd.calculateShortestPath(fromIndex, toIndex);
-                highlightPath(result);
             }
+
+            floyd.init(pathTable, (nodeCollection.Nodes.Count));
+            var fromIndex = nodeCollection.getIndexByName(cb_initialNode.Text);
+            var toIndex = nodeCollection.getIndexByName(cb_endNode.Text);
+
+            if(fromIndex > toIndex)
+            {
+                var temp = fromIndex;
+                fromIndex = toIndex;
+                toIndex = temp;
+            }
+            List<int> result = floyd.calculateShortestPath(fromIndex, toIndex);
+            highlightPath(result);
+            
         }
 
         private void btn_loadNodes_Click(object sender, EventArgs e)
