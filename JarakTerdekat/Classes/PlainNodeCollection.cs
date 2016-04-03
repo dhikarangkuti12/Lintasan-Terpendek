@@ -15,7 +15,7 @@ namespace JarakTerdekat
             plainNodes = new List<PlainNode>();
         }
 
-        public void populateNodes(List<Node> Nodes)
+        public void populateNodes(List<Nodes> Nodes)
         {
             foreach (var node in Nodes)
             {
@@ -41,7 +41,7 @@ namespace JarakTerdekat
 
             foreach(var plainNode in plainNodes)
             {
-                nodeCollection.addNode(new Node(plainNode.name));
+                nodeCollection.addNode(new Nodes(plainNode.name));
             }
 
             foreach (var plainNode in plainNodes)
@@ -55,6 +55,8 @@ namespace JarakTerdekat
                     node.neighborsCollection.Nodes[node.neighborsCollection.Nodes.Count - 1].jarak = plainNeighbor.jarak;
                 }
             }
+
+            
 
             return nodeCollection;
         }

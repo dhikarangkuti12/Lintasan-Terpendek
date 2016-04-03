@@ -125,7 +125,9 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Algorithms\BellmanFordAlgorithm.cs" />
     <Compile Include="Algorithms\Floyd.cs" />
+    <Compile Include="Algorithms\FloydBaru.cs" />
     <Compile Include="Classes\PlainNode.cs" />
     <Compile Include="Classes\PlainNodeCollection.cs" />
     <Compile Include="MainWindow.cs">

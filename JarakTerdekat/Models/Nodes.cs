@@ -14,19 +14,19 @@ using QuickGraph;
 
 namespace JarakTerdekat
 {
-    class Node
+    class Nodes
     {
         public string name;
         public DataVertex vertex;
 
-        public List<Node> availableNeighbors;
+        public List<Nodes> availableNeighbors;
         public NeighborCollection neighborsCollection;
         public NodeCollection allNodes;
 
-        public Node(string name)
+        public Nodes(string name)
         {
             this.name = name;
-            this.availableNeighbors = new List<Node>();
+            this.availableNeighbors = new List<Nodes>();
             this.neighborsCollection = new NeighborCollection();
         }
 
@@ -37,10 +37,7 @@ namespace JarakTerdekat
             if(index != -1)
             {
                 neighborsCollection.Nodes.Add(new Neighbor(allNodes.Nodes[index], 0));
-                foreach(var node in availableNeighbors)
-                {
-                    Console.WriteLine(node.name);
-                }
+
                 availableNeighbors.RemoveAt(getIndexByName(allNodes.Nodes[index].name, availableNeighbors));
             }
         }
@@ -53,10 +50,15 @@ namespace JarakTerdekat
 
         public Neighbor getNeighborByName(string name)
         {
-            return neighborsCollection.Nodes[getNeighborIndexByName(name, neighborsCollection.Nodes)];
+            var index = getNeighborIndexByName(name, neighborsCollection.Nodes);
+            if (index > -1)
+            {
+                return neighborsCollection.Nodes[index];
+            }
+            return null;
         }
 
-        protected int getIndexByName(string nodeName, List<Node> Collection)
+        protected int getIndexByName(string nodeName, List<Nodes> Collection)
         {
             int index = -1;
             int count = 0;
@@ -108,9 +110,10 @@ namespace JarakTerdekat
     class Neighbor
     {
         public double jarak;
-        public Node node;
+        public Nodes node;
+        public DataEdge edge;
 
-        public Neighbor(Node neighbor, double jarak)
+        public Neighbor(Nodes neighbor, double jarak)
         {
             this.node = neighbor;
             this.jarak = jarak;
@@ -123,6 +126,16 @@ namespace JarakTerdekat
         public NeighborCollection()
         {
             Nodes = new List<Neighbor>();
+        }
+
+        public Neighbor getNeighborByName(string name)
+        {
+            var index = getNeighborIndexByName(name);
+            if (index > -1)
+            {
+                return Nodes[index];
+            }
+            return null;
         }
 
         public int getNeighborIndexByName(string nodeName)

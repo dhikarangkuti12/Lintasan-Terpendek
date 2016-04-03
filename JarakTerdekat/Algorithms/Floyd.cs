@@ -11,6 +11,11 @@ namespace JarakTerdekat
 
         public List<List<double>> P;
         public List<List<double>> M;
+
+        public int startIndex;
+        public int endIndex;
+
+        public List<int> result;
         public int N;
 
 
@@ -18,6 +23,7 @@ namespace JarakTerdekat
         {
             this.N = (int)N;
             P = new List<List<double>>();
+            result = new List<int>();
             M = inputTable;
 
             for (int i = 0; i < N; i++)
@@ -26,19 +32,47 @@ namespace JarakTerdekat
 
                 for (int j = 0; j < N; j++)
                 {
-                    P[i].Add(0);
+                    P[i].Add(-1);
                 }
             }
         }
 
-        public void calculateShortestPath(int startIndex, int endIndex)
+        public List<int> calculateShortestPath(int startIndex, int endIndex)
         {
+            this.startIndex = startIndex;
+            this.endIndex = endIndex;
+
+            result.Add(startIndex);
+
             Console.WriteLine("Matrix to find the shortest path of.");
             printMatrix(M);
             Console.WriteLine("Shortest Path Matrix.");
             printMatrix(FloydAlgo(M));
             Console.WriteLine("Path Matrix");
             printMatrix(P);
+
+            path(startIndex, endIndex);
+
+            result.Add(endIndex);
+
+            return result;
+        }
+
+        public void path(int u, int v)
+        {
+            double k;
+
+            k = P[u][v];
+
+            if (k == -1)
+            {
+                return;
+            }
+            path(u, (int)k);
+
+            result.Add((int)k);
+
+            path((int)k, v);
         }
 
         public List<List<double>> FloydAlgo(List<List<double>> M)

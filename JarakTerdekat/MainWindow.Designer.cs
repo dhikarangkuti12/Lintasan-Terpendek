@@ -36,8 +36,8 @@
             this.materialDivider4 = new MaterialSkin.Controls.MaterialDivider();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btn_calculateShortestPath = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.cb_endNode = new System.Windows.Forms.ComboBox();
+            this.cb_initialNode = new System.Windows.Forms.ComboBox();
             this.materialFlatButton6 = new MaterialSkin.Controls.MaterialFlatButton();
             this.materialFlatButton5 = new MaterialSkin.Controls.MaterialFlatButton();
             this.materialFlatButton4 = new MaterialSkin.Controls.MaterialFlatButton();
@@ -134,8 +134,8 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.btn_calculateShortestPath);
-            this.panel1.Controls.Add(this.comboBox4);
-            this.panel1.Controls.Add(this.comboBox3);
+            this.panel1.Controls.Add(this.cb_endNode);
+            this.panel1.Controls.Add(this.cb_initialNode);
             this.panel1.Controls.Add(this.materialFlatButton6);
             this.panel1.Controls.Add(this.materialFlatButton5);
             this.panel1.Controls.Add(this.materialFlatButton4);
@@ -157,21 +157,21 @@
             this.btn_calculateShortestPath.UseVisualStyleBackColor = true;
             this.btn_calculateShortestPath.Click += new System.EventHandler(this.btn_calculateShortestPath_Click);
             // 
-            // comboBox4
+            // cb_endNode
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(68, 109);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(121, 21);
-            this.comboBox4.TabIndex = 22;
+            this.cb_endNode.FormattingEnabled = true;
+            this.cb_endNode.Location = new System.Drawing.Point(68, 109);
+            this.cb_endNode.Name = "cb_endNode";
+            this.cb_endNode.Size = new System.Drawing.Size(121, 21);
+            this.cb_endNode.TabIndex = 22;
             // 
-            // comboBox3
+            // cb_initialNode
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(68, 61);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(121, 21);
-            this.comboBox3.TabIndex = 21;
+            this.cb_initialNode.FormattingEnabled = true;
+            this.cb_initialNode.Location = new System.Drawing.Point(68, 61);
+            this.cb_initialNode.Name = "cb_initialNode";
+            this.cb_initialNode.Size = new System.Drawing.Size(121, 21);
+            this.cb_initialNode.TabIndex = 21;
             // 
             // materialFlatButton6
             // 
@@ -555,8 +555,8 @@
         private MaterialSkin.Controls.MaterialDivider materialDivider4;
         private System.Windows.Forms.Panel panel1;
         private MaterialSkin.Controls.MaterialRaisedButton btn_calculateShortestPath;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox cb_endNode;
+        private System.Windows.Forms.ComboBox cb_initialNode;
         private MaterialSkin.Controls.MaterialFlatButton materialFlatButton6;
         private MaterialSkin.Controls.MaterialFlatButton materialFlatButton5;
         private MaterialSkin.Controls.MaterialFlatButton materialFlatButton4;

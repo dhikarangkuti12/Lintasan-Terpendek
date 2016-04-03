@@ -15,10 +15,13 @@ using MaterialSkin.Controls;
 using System.Collections.Generic;
 using System.IO;
 
+using JarakTerdekat.Algorithm.BellmanFord;
+
 namespace JarakTerdekat
 {
     public partial class MainWindow : MaterialForm
     {
+        private bool isGraphReady;
         private readonly MaterialSkinManager materialSkinManager;
 
         private NodeCollection nodeCollection;
@@ -40,6 +43,8 @@ namespace JarakTerdekat
             Load += Form1_Load;
 
             panel_nodeProperty.Visible = false;
+
+            isGraphReady = false;
         }
 
         void Form1_Load(object sender, EventArgs e)
@@ -96,6 +101,7 @@ namespace JarakTerdekat
             foreach (var node in nodeCollection.Nodes)
             {
                 var dataVertex = new DataVertex(node.name);
+                nodeCollection.getNodeByName(node.name).vertex = dataVertex;
                 dataGraph.AddVertex(dataVertex);
             }
 
@@ -112,6 +118,8 @@ namespace JarakTerdekat
                         var neighborIndex = 
                         dataEdge = new DataEdge(vlist[i], vlist[nodeCollection.getIndexByName(neighbor.node.name)]) { Text = neighbor.jarak.ToString()};
                         dataGraph.AddEdge(dataEdge);
+
+                        neighbor.edge = dataEdge;
                     }
                 }
             }
@@ -128,10 +136,12 @@ namespace JarakTerdekat
             _gArea.SetVerticesDrag(true, true);
             _zoomctrl.ZoomToFill();
 
-            _gArea.SetEdgesHighlight(true, (GraphControlType)1);
+            //_gArea.SetEdgesHighlight(true, (GraphControlType)1);
 
             _gArea.RelayoutGraph();
             _gArea.ShowAllEdgesArrows(false);
+
+            isGraphReady = true;
         }
 
         private void but_reload_Click(object sender, EventArgs e)
@@ -143,9 +153,22 @@ namespace JarakTerdekat
         {
             if(txtField_nodeName.Text!="" && !nodeCollection.isContainsNode(txtField_nodeName.Text))
             {
-                nodeCollection.addNode(new Node(txtField_nodeName.Text));
+                nodeCollection.addNode(new Nodes(txtField_nodeName.Text));
                 treeView1.Nodes[0].Nodes.Add(txtField_nodeName.Text);
                 updateAvailableNeigborsComboBox();
+            }
+
+            updatePathFinderComboBox();
+        }
+
+        private void updatePathFinderComboBox()
+        {
+            cb_initialNode.Items.Clear();
+            cb_endNode.Items.Clear();
+            foreach (var node in nodeCollection.Nodes)
+            {
+                cb_initialNode.Items.Add(node.name);
+                cb_endNode.Items.Add(node.name);
             }
         }
 
@@ -185,6 +208,7 @@ namespace JarakTerdekat
 
                 listview_nodeNeighbors.Items.Add(new ListViewItem(new[] { selectedNeighborName, "0" }));
                 nodeCollection.selectedNode.addNeighbor(selectedNeighborName);
+                nodeCollection.getNodeByName(selectedNeighborName).addNeighbor(nodeCollection.selectedNode.name);
 
                 updateAvailableNeigborsComboBox();
                 comboBox_neighbors.Text = "";
@@ -210,6 +234,7 @@ namespace JarakTerdekat
             {
                 var selectedNode = nodeCollection.getNodeByName(treeView1.SelectedNode.Text);
                 selectedNode.removeNeighbor(listview_nodeNeighbors.SelectedItems[0].Text);
+                nodeCollection.getNodeByName(listview_nodeNeighbors.SelectedItems[0].Text).removeNeighbor(selectedNode.name);
 
                 updateAvailableNeigborsComboBox();
                 populateSelectedNodeDataToList();
@@ -229,6 +254,7 @@ namespace JarakTerdekat
                     if (updateJarakDialogue.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                     {
                         selectedNeighbor.jarak = double.Parse(updateJarakDialogue.inputText);
+                        selectedNeighbor.node.getNeighborByName(selectedNode.name).jarak = selectedNeighbor.jarak;
                     }
                 }
                 populateSelectedNodeDataToList();
@@ -237,52 +263,62 @@ namespace JarakTerdekat
 
         private void btn_calculateShortestPath_Click(object sender, EventArgs e)
         {
+            if (!isGraphReady)
+                return;
 
-            foreach (var item in _gArea.EdgesList)
+            BellmanFordAlgorithm bellman = new BellmanFordAlgorithm();
+            
+            if(cb_initialNode.Text != cb_endNode.Text)
             {
-                HighlightBehaviour.SetHighlightControl(item.Value, (GraphControlType)1);
-                HighlightBehaviour.SetHighlighted(item.Value, true);
-            }
+                double inf = 9999999;
 
+                Console.WriteLine(inf);
 
-            double inf = double.PositiveInfinity;
+                var pathTable = new List<List<double>>();
 
-            Console.WriteLine(inf);
-
-            var pathTable = new List<List<double>>();
-
-            for (int i=0; i<nodeCollection.Nodes.Count; i++)
-            {
-                pathTable.Add(new List<double>());
-
-                var from = nodeCollection.Nodes[i];
-                var fromNeighbors = from.neighborsCollection;
-
-                for (int j=0; j<nodeCollection.Nodes.Count; j++)
+                for (int i = 0; i < nodeCollection.Nodes.Count; i++)
                 {
-                    var to = nodeCollection.Nodes[j];
+                    pathTable.Add(new List<double>());
 
-                    if (to.name == from.name )
+                    var from = nodeCollection.Nodes[i];
+                    var fromNeighbors = from.neighborsCollection;
+
+                    for (int j = 0; j < nodeCollection.Nodes.Count; j++)
                     {
-                        pathTable[i].Add(0);
-                    }
-                    else
-                    {
-                        var index = fromNeighbors.getNeighborIndexByName(to.name);
-                        if (index != -1)
+                        var to = nodeCollection.Nodes[j];
+
+                        if (to.name == from.name)
                         {
-                            pathTable[i].Add(fromNeighbors.Nodes[index].jarak);
+                            pathTable[i].Add(0);
                         }
                         else
                         {
-                            pathTable[i].Add(inf);
+                            var index = fromNeighbors.getNeighborIndexByName(to.name);
+                            if (index != -1)
+                            {
+                                pathTable[i].Add(fromNeighbors.Nodes[index].jarak);
+                            }
+                            else
+                            {
+                                pathTable[i].Add(inf);
+                            }
                         }
                     }
                 }
-            }
 
-            floyd.init(pathTable, (pathTable.Count));
-            floyd.calculateShortestPath(0, 5);
+                floyd.init(pathTable, (nodeCollection.Nodes.Count));
+                var fromIndex = nodeCollection.getIndexByName(cb_initialNode.Text);
+                var toIndex = nodeCollection.getIndexByName(cb_endNode.Text);
+
+                if(fromIndex > toIndex)
+                {
+                    var temp = fromIndex;
+                    fromIndex = toIndex;
+                    toIndex = temp;
+                }
+                List<int> result = floyd.calculateShortestPath(fromIndex, toIndex);
+                highlightPath(result);
+            }
         }
 
         private void btn_loadNodes_Click(object sender, EventArgs e)
@@ -311,6 +347,8 @@ namespace JarakTerdekat
                 {
                     treeView1.Nodes[0].Nodes.Add(node.name);
                 }
+
+                updatePathFinderComboBox();
             }
         }
 
@@ -340,6 +378,54 @@ namespace JarakTerdekat
             path = string.Format("{0}\\{1}.json", path, fileName);
 
             JsonSerialization.WriteToJsonFile(path, nodeCollection.serialize());
+        }
+
+        private void highlightPath(List<int> indexs)
+        {
+            Console.WriteLine("indexs:");
+            foreach (var ind in indexs)
+            {
+                Console.WriteLine("indexs: " + ind);
+            }
+            _gArea.SetVerticesHighlight(false, (GraphControlType)1);
+
+            foreach(var edge in _gArea.EdgesList)
+            {
+                HighlightBehaviour.SetHighlighted(edge.Value, false);
+            }
+
+            var index = 0;
+            var currentNode = nodeCollection.Nodes[0];
+            var nextNode = nodeCollection.Nodes[0];
+
+            for (int i = 0; i < indexs.Count; i++)
+            {
+                index = indexs[i];
+                currentNode = nodeCollection.Nodes[index];
+
+                Console.WriteLine("Current Node: " + currentNode.name);
+
+                if(i+1 < indexs.Count)
+                {
+                    nextNode = nodeCollection.Nodes[indexs[i + 1]];
+
+                    highlightTheEdge(currentNode, nextNode);
+                    highlightTheEdge(nextNode, currentNode);
+                }
+
+                HighlightBehaviour.SetHighlighted(_gArea.VertexList[currentNode.vertex], true);
+            }
+            
+        }
+
+        private void highlightTheEdge(Nodes currentNode, Nodes nextNode)
+        {
+            Neighbor currentNeighbor = null;
+
+            currentNeighbor = currentNode.getNeighborByName(nextNode.name);
+
+            if(currentNeighbor != null)
+                HighlightBehaviour.SetHighlighted(_gArea.EdgesList[currentNeighbor.edge], true);
         }
     }
 }

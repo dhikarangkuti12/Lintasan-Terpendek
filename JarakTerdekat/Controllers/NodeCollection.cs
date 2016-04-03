@@ -8,15 +8,15 @@ namespace JarakTerdekat
 {
     class NodeCollection
     {
-        public List<Node> Nodes;
-        public Node selectedNode;
+        public List<Nodes> Nodes;
+        public Nodes selectedNode;
 
         public NodeCollection()
         {
-            this.Nodes = new List<Node>();
+            this.Nodes = new List<Nodes>();
         }
 
-        public void addNode(Node newNode)
+        public void addNode(Nodes newNode)
         {
             Nodes.Add(newNode);
             Nodes[Nodes.Count - 1].allNodes = this;
@@ -36,7 +36,7 @@ namespace JarakTerdekat
             return false;
         }
 
-        public Node getNodeByName(string name)
+        public Nodes getNodeByName(string name)
         {
             var index = getIndexByName(name);
 
