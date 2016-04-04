@@ -1,16 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
-using System.Windows;
-using System.Windows.Forms;
-using GraphX.PCL.Common.Enums;
-using GraphX.PCL.Logic.Algorithms.OverlapRemoval;
-using GraphX.PCL.Logic.Models;
-using GraphX.Controls;
-using QuickGraph;
 
 namespace JarakTerdekat
 {
@@ -48,6 +37,16 @@ namespace JarakTerdekat
             availableNeighbors.Add(allNodes.Nodes[getIndexByName(neighborName, allNodes.Nodes)]);
         }
 
+        public void removeNeighborHard(string neighborName)
+        {
+            int index = getIndexByName(neighborName, allNodes.Nodes);
+
+            if (index != -1)
+            {
+                availableNeighbors.RemoveAt(getIndexByName(allNodes.Nodes[index].name, availableNeighbors));
+            }
+        }
+
         public Neighbor getNeighborByName(string name)
         {
             var index = getNeighborIndexByName(name, neighborsCollection.Nodes);
@@ -58,7 +57,7 @@ namespace JarakTerdekat
             return null;
         }
 
-        protected int getIndexByName(string nodeName, List<Nodes> Collection)
+        public int getIndexByName(string nodeName, List<Nodes> Collection)
         {
             int index = -1;
             int count = 0;

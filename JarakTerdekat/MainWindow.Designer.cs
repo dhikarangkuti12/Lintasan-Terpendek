@@ -35,7 +35,10 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.materialDivider4 = new MaterialSkin.Controls.MaterialDivider();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lbl_executionTime = new MaterialSkin.Controls.MaterialLabel();
+            this.cb_algoritma = new System.Windows.Forms.ComboBox();
             this.btn_calculateShortestPath = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.materialFlatButton1 = new MaterialSkin.Controls.MaterialFlatButton();
             this.cb_endNode = new System.Windows.Forms.ComboBox();
             this.cb_initialNode = new System.Windows.Forms.ComboBox();
             this.materialFlatButton6 = new MaterialSkin.Controls.MaterialFlatButton();
@@ -46,6 +49,7 @@
             this.but_reload = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.btn_deleteNode = new MaterialSkin.Controls.MaterialRaisedButton();
             this.btn_loadNodes = new MaterialSkin.Controls.MaterialRaisedButton();
             this.panel_nodeProperty = new System.Windows.Forms.Panel();
             this.materialDivider6 = new MaterialSkin.Controls.MaterialDivider();
@@ -133,7 +137,10 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.lbl_executionTime);
+            this.panel1.Controls.Add(this.cb_algoritma);
             this.panel1.Controls.Add(this.btn_calculateShortestPath);
+            this.panel1.Controls.Add(this.materialFlatButton1);
             this.panel1.Controls.Add(this.cb_endNode);
             this.panel1.Controls.Add(this.cb_initialNode);
             this.panel1.Controls.Add(this.materialFlatButton6);
@@ -141,36 +148,76 @@
             this.panel1.Controls.Add(this.materialFlatButton4);
             this.panel1.Location = new System.Drawing.Point(10, 6);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(229, 380);
+            this.panel1.Size = new System.Drawing.Size(229, 439);
             this.panel1.TabIndex = 3;
+            // 
+            // lbl_executionTime
+            // 
+            this.lbl_executionTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lbl_executionTime.AutoSize = true;
+            this.lbl_executionTime.Depth = 0;
+            this.lbl_executionTime.Font = new System.Drawing.Font("Roboto", 11F);
+            this.lbl_executionTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lbl_executionTime.Location = new System.Drawing.Point(136, 405);
+            this.lbl_executionTime.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lbl_executionTime.Name = "lbl_executionTime";
+            this.lbl_executionTime.Size = new System.Drawing.Size(0, 19);
+            this.lbl_executionTime.TabIndex = 25;
+            // 
+            // cb_algoritma
+            // 
+            this.cb_algoritma.FormattingEnabled = true;
+            this.cb_algoritma.Items.AddRange(new object[] {
+            "L-Queue",
+            "Floyd"});
+            this.cb_algoritma.Location = new System.Drawing.Point(81, 156);
+            this.cb_algoritma.Name = "cb_algoritma";
+            this.cb_algoritma.Size = new System.Drawing.Size(80, 21);
+            this.cb_algoritma.TabIndex = 26;
             // 
             // btn_calculateShortestPath
             // 
             this.btn_calculateShortestPath.Depth = 0;
-            this.btn_calculateShortestPath.Location = new System.Drawing.Point(83, 136);
+            this.btn_calculateShortestPath.Location = new System.Drawing.Point(167, 156);
             this.btn_calculateShortestPath.MouseState = MaterialSkin.MouseState.HOVER;
             this.btn_calculateShortestPath.Name = "btn_calculateShortestPath";
             this.btn_calculateShortestPath.Primary = true;
-            this.btn_calculateShortestPath.Size = new System.Drawing.Size(106, 32);
+            this.btn_calculateShortestPath.Size = new System.Drawing.Size(46, 21);
             this.btn_calculateShortestPath.TabIndex = 23;
             this.btn_calculateShortestPath.Text = "Go";
             this.btn_calculateShortestPath.UseVisualStyleBackColor = true;
             this.btn_calculateShortestPath.Click += new System.EventHandler(this.btn_calculateShortestPath_Click);
             // 
+            // materialFlatButton1
+            // 
+            this.materialFlatButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.materialFlatButton1.AutoSize = true;
+            this.materialFlatButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialFlatButton1.Depth = 0;
+            this.materialFlatButton1.Location = new System.Drawing.Point(4, 397);
+            this.materialFlatButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialFlatButton1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialFlatButton1.Name = "materialFlatButton1";
+            this.materialFlatButton1.Primary = true;
+            this.materialFlatButton1.Size = new System.Drawing.Size(125, 36);
+            this.materialFlatButton1.TabIndex = 27;
+            this.materialFlatButton1.Text = "Execution Time:";
+            this.materialFlatButton1.UseVisualStyleBackColor = true;
+            // 
             // cb_endNode
             // 
             this.cb_endNode.FormattingEnabled = true;
-            this.cb_endNode.Location = new System.Drawing.Point(68, 109);
+            this.cb_endNode.Location = new System.Drawing.Point(81, 109);
             this.cb_endNode.Name = "cb_endNode";
-            this.cb_endNode.Size = new System.Drawing.Size(121, 21);
+            this.cb_endNode.Size = new System.Drawing.Size(132, 21);
             this.cb_endNode.TabIndex = 22;
             // 
             // cb_initialNode
             // 
             this.cb_initialNode.FormattingEnabled = true;
-            this.cb_initialNode.Location = new System.Drawing.Point(68, 61);
+            this.cb_initialNode.Location = new System.Drawing.Point(81, 61);
             this.cb_initialNode.Name = "cb_initialNode";
-            this.cb_initialNode.Size = new System.Drawing.Size(121, 21);
+            this.cb_initialNode.Size = new System.Drawing.Size(132, 21);
             this.cb_initialNode.TabIndex = 21;
             // 
             // materialFlatButton6
@@ -211,7 +258,7 @@
             this.materialFlatButton4.AutoSize = true;
             this.materialFlatButton4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.materialFlatButton4.Depth = 0;
-            this.materialFlatButton4.Location = new System.Drawing.Point(4, 6);
+            this.materialFlatButton4.Location = new System.Drawing.Point(4, 16);
             this.materialFlatButton4.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialFlatButton4.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialFlatButton4.Name = "materialFlatButton4";
@@ -269,6 +316,7 @@
             // 
             // panel5
             // 
+            this.panel5.Controls.Add(this.btn_deleteNode);
             this.panel5.Controls.Add(this.btn_loadNodes);
             this.panel5.Controls.Add(this.panel_nodeProperty);
             this.panel5.Controls.Add(this.btn_saveNodes);
@@ -281,6 +329,20 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(1160, 445);
             this.panel5.TabIndex = 1;
+            // 
+            // btn_deleteNode
+            // 
+            this.btn_deleteNode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_deleteNode.Depth = 0;
+            this.btn_deleteNode.Location = new System.Drawing.Point(3, 410);
+            this.btn_deleteNode.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btn_deleteNode.Name = "btn_deleteNode";
+            this.btn_deleteNode.Primary = true;
+            this.btn_deleteNode.Size = new System.Drawing.Size(195, 27);
+            this.btn_deleteNode.TabIndex = 37;
+            this.btn_deleteNode.Text = "Delete Selected Node";
+            this.btn_deleteNode.UseVisualStyleBackColor = true;
+            this.btn_deleteNode.Click += new System.EventHandler(this.btn_deleteNode_Click);
             // 
             // btn_loadNodes
             // 
@@ -327,6 +389,7 @@
             // 
             // btn_deleteSelectedNode
             // 
+            this.btn_deleteSelectedNode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btn_deleteSelectedNode.Depth = 0;
             this.btn_deleteSelectedNode.Location = new System.Drawing.Point(72, 410);
             this.btn_deleteSelectedNode.MouseState = MaterialSkin.MouseState.HOVER;
@@ -505,7 +568,7 @@
             treeNode1.Text = "Root";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode1});
-            this.treeView1.Size = new System.Drawing.Size(195, 426);
+            this.treeView1.Size = new System.Drawing.Size(195, 387);
             this.treeView1.TabIndex = 5;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
@@ -582,6 +645,10 @@
         private System.Windows.Forms.TreeView treeView1;
         private MaterialSkin.Controls.MaterialRaisedButton btn_saveNodes;
         private MaterialSkin.Controls.MaterialRaisedButton btn_loadNodes;
+        private System.Windows.Forms.ComboBox cb_algoritma;
+        private MaterialSkin.Controls.MaterialLabel lbl_executionTime;
+        private MaterialSkin.Controls.MaterialFlatButton materialFlatButton1;
+        private MaterialSkin.Controls.MaterialRaisedButton btn_deleteNode;
     }
 }
 

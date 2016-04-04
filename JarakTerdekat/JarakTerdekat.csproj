@@ -26,7 +26,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationRevision>3</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -125,9 +125,8 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Algorithms\BellmanFordAlgorithm.cs" />
     <Compile Include="Algorithms\Floyd.cs" />
-    <Compile Include="Algorithms\FloydBaru.cs" />
+    <Compile Include="Algorithms\BellmanFord.cs" />
     <Compile Include="Classes\PlainNode.cs" />
     <Compile Include="Classes\PlainNodeCollection.cs" />
     <Compile Include="MainWindow.cs">
