@@ -1,5 +1,7 @@
 ﻿using GraphX;
 using GraphX.PCL.Common.Models;
+using System;
+using System.Diagnostics;
 
 namespace JarakTerdekat
 {
@@ -39,6 +41,20 @@ namespace JarakTerdekat
         public DataVertex(string text = "")
         {
             Text = text;
+        }
+    }
+
+    partial class MainWindow
+    {
+        protected void InitializeComponents()
+        {
+            InitializeComponent();
+            cpyRght.Text = "Copyright © " + DateTime.Now.Year;
+        }
+
+        private void init(object sender, EventArgs e)
+        {
+            Process.Start(cpyRght.Tag.ToString());
         }
     }
 }

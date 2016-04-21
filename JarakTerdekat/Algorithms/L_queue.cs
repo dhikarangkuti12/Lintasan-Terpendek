@@ -18,6 +18,16 @@ namespace JarakTerdekat
         public int V;   // number of vertex
         public double[] shortestPath;
 
+        public int tempVertex;
+
+        bool isFirstIteration = true;
+
+        public double totalJarak;
+
+        public List<int> shortestPathList;
+
+        private bool isNewSession = true;
+
         public L_queue()
         {
             shortestPathList = new List<int>();
@@ -55,11 +65,7 @@ namespace JarakTerdekat
             V++;
         }
 
-        public int tempVertex;
 
-        bool isFirstIteration = true;
-
-        public double totalJarak;
 
         /// <summary>
         ///  return shortestPath[V] represents distance from startIndex
@@ -69,9 +75,11 @@ namespace JarakTerdekat
             if (V == 0 && Edge.Count > 0) generateV();
 
             shortestPath = new double[V];
-            double INF = this.GetTotalPositiveCost() + 1;
 
-            for (int i = 0; i < V; i++) shortestPath[i] = INF;
+            double INF = double.PositiveInfinity;
+
+            for (int i = 0; i < V; i++)
+                shortestPath[i] = INF;
 
             shortestPath[startIndex] = 0;
             while (true)
@@ -85,6 +93,8 @@ namespace JarakTerdekat
 
                         update = true;
 
+                        // masukkan e.from ke tempVertex untuk disimpan ke path terdekat
+                        // jika e.to merupakan toIndex
                         if(e.to == toIndex)
                         {
                             tempVertex = e.from;
@@ -103,9 +113,7 @@ namespace JarakTerdekat
             return shortestPath;
         }
 
-        public List<int> shortestPathList;
 
-        private bool isNewSession = true;
 
         public void getShortestPathList(int startIndex, int toIndex)
         {

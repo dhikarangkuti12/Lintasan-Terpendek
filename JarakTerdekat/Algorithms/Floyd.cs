@@ -46,12 +46,14 @@ namespace JarakTerdekat
 
             result.Add(startIndex);
 
-            Console.WriteLine("Matrix to find the shortest path of.");
-            printMatrix(M);
-            Console.WriteLine("Shortest Path Matrix.");
-            printMatrix(FloydAlgo(M));
-            Console.WriteLine("Path Matrix");
-            printMatrix(P);
+            FloydAlgo(M);
+
+            //Console.WriteLine("Matrix to find the shortest path of.");
+            //printMatrix(M);
+            //Console.WriteLine("Shortest Path Matrix.");
+            //printMatrix(hasil);
+            //Console.WriteLine("Path Matrix");
+            //printMatrix(P);
 
             path(startIndex, endIndex);
 
@@ -85,14 +87,11 @@ namespace JarakTerdekat
                 {
                     for (int j = 0; j < N; j++)
                     {
-                        // to keep track.;
                         if (M[i][k] + M[k][j] < M[i][j])
                         {
                             M[i][j] = M[i][k] + M[k][j];
                             P[i][j] = k;
                         }
-                        // or not to keep track.
-                        //M[i][j] = min(M[i][j], M[i][k] + M[k][j]);
                     }
                 }
             }
