@@ -30,6 +30,7 @@
         {
             this.txtField_jarakInput = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.btn_updateJarak = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // txtField_jarakInput
@@ -64,19 +65,32 @@
             this.btn_updateJarak.UseVisualStyleBackColor = true;
             this.btn_updateJarak.Click += new System.EventHandler(this.btn_updateJarak_Click);
             // 
-            // inputJarakDialogue
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(12, 113);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(43, 17);
+            this.checkBox1.TabIndex = 2;
+            this.checkBox1.Text = "text";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.Visible = false;
+            // 
+            // textInputDialogue
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(286, 199);
+            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.btn_updateJarak);
             this.Controls.Add(this.txtField_jarakInput);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "inputJarakDialogue";
+            this.Name = "textInputDialogue";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Title";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -84,5 +98,6 @@
 
         private MaterialSkin.Controls.MaterialSingleLineTextField txtField_jarakInput;
         private MaterialSkin.Controls.MaterialRaisedButton btn_updateJarak;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }

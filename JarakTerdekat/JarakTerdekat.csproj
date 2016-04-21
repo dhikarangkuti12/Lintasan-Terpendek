@@ -126,7 +126,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Algorithms\Floyd.cs" />
-    <Compile Include="Algorithms\BellmanFord.cs" />
+    <Compile Include="Algorithms\L_queue.cs" />
     <Compile Include="Classes\PlainNode.cs" />
     <Compile Include="Classes\PlainNodeCollection.cs" />
     <Compile Include="MainWindow.cs">
@@ -140,6 +140,18 @@
     </Compile>
     <Compile Include="Forms\textInputDialogue.Designer.cs">
       <DependentUpon>textInputDialogue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow.floyd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainWindow.graphInit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainWindow.helper.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainWindow.lqueue.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Models\DataEdge.cs" />
     <Compile Include="Models\DataVertex.cs" />
@@ -168,9 +180,7 @@
     </Compile>
     <None Include="app.config" />
     <None Include="JarakTerdekat_TemporaryKey.pfx" />
-    <None Include="packages.config">
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -183,12 +193,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\dice.png" />
+    <None Include="Resources\defaultIcon.png" />
     <None Include="Resources\logo usu untuk semua png1.png" />
     <None Include="Resources\logo usu untuk semua png.png" />
     <None Include="Resources\logo usu baru.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Images\OKEU9948.png" />
     <Content Include="Images\update.png" />
   </ItemGroup>
   <ItemGroup>

@@ -30,7 +30,7 @@ using GraphX.PCL.Common.Interfaces;
 using GraphX.PCL.Common.Models;
 using GraphX.Controls.Models;
 using GraphX.PCL.Logic.Algorithms;
-using GraphX.PCL.Logic.Helpers;
+//using GraphX.PCL.Logic.Helpers;
 using QuickGraph;
 using Rect = GraphX.Measure.Rect;
 using Size = GraphX.Measure.Size;

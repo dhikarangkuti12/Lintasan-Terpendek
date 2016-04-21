@@ -21,6 +21,8 @@ namespace JarakTerdekat
 
         public string inputText;
 
+        public CheckBox checkBox;
+
         public textInputDialogue(string title, string hint, string currentValue)
         {
             materialSkinManager = MaterialSkinManager.Instance;
@@ -31,6 +33,8 @@ namespace JarakTerdekat
             InitializeComponent();
 
             this.Text = title;
+            checkBox = checkBox1;
+
             txtField_jarakInput.Text = currentValue;
             txtField_jarakInput.Hint = hint;
         }
