@@ -16,6 +16,7 @@ namespace JarakTerdekat
     {
         public List<edge> Edge = new List<edge>();
         public int V;   // number of vertex
+        public double[] shortestPath;
 
         public BellmanFord()
         {
@@ -56,6 +57,10 @@ namespace JarakTerdekat
 
         public int tempVertex;
 
+        bool isFirstIteration = true;
+
+        public double totalJarak;
+
         /// <summary>
         ///  return shortestPath[V] represents distance from startIndex
         /// </summary>
@@ -63,7 +68,7 @@ namespace JarakTerdekat
         {
             if (V == 0 && Edge.Count > 0) generateV();
 
-            double[] shortestPath = new double[V];
+            shortestPath = new double[V];
             double INF = this.GetTotalPositiveCost() + 1;
 
             for (int i = 0; i < V; i++) shortestPath[i] = INF;
@@ -87,6 +92,12 @@ namespace JarakTerdekat
                     }
                 }
                 if (!update) break;
+            }
+
+            if (isFirstIteration)
+            {
+                totalJarak = shortestPath[toIndex];
+                isFirstIteration = false;
             }
 
             return shortestPath;

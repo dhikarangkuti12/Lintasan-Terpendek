@@ -27,6 +27,10 @@ namespace JarakTerdekat
 
         private Floyd floyd;
 
+        private System.Diagnostics.Stopwatch watch;
+
+        private double totalJarak;
+
         public MainWindow()
         {
             floyd = new Floyd();
@@ -46,6 +50,11 @@ namespace JarakTerdekat
             isGraphReady = false;
 
             cb_algoritma.Text = cb_algoritma.Items[0].ToString();
+
+            watch = System.Diagnostics.Stopwatch.StartNew();
+            watch.Stop();
+
+            //textBox_about.ScrollBars = ScrollBars.Vertical;
         }
 
         void Form1_Load(object sender, EventArgs e)
@@ -267,34 +276,42 @@ namespace JarakTerdekat
                 return;
 
 
-            if (cb_initialNode.Text == cb_endNode.Text)
+            if (cb_initialNode.Text == cb_endNode.Text || 
+                (nodeCollection.getNodeByName(cb_initialNode.Text).neighborsCollection.Nodes.Count == 0) ||
+                (nodeCollection.getNodeByName(cb_endNode.Text).neighborsCollection.Nodes.Count == 0))
             {
                 List<int> hasil = new List<int>();
+                hasil.Add(nodeCollection.getIndexByName(cb_initialNode.Text));
                 hasil.Add(nodeCollection.getIndexByName(cb_endNode.Text));
                 highlightPath(hasil);
+
+                lbl_executionTime.Text = "";
+                lbl_totalJarak.Text = "";
                 return;
             }
 
             List<int> result = new List<int>();
 
-            long elapsedMs = 0;
+            double elapsedMs = 0;
 
             if (cb_algoritma.Text == "Floyd")
             {
-                var watch = System.Diagnostics.Stopwatch.StartNew();
+                watch.Restart();
                 result = getPathWithFloyd();
-                watch.Stop();
-                elapsedMs = watch.ElapsedMilliseconds;
             }
             else
             {
-                var watch = System.Diagnostics.Stopwatch.StartNew();
+                watch.Restart();
                 result = getPathWithBellmanFord();
-                watch.Stop();
-                elapsedMs = watch.ElapsedMilliseconds;
             }
-            lbl_executionTime.Text = (elapsedMs + " ms");
+
+            watch.Stop();
+            elapsedMs = watch.ElapsedMilliseconds;
+           
             highlightPath(result);
+
+            lbl_executionTime.Text = (elapsedMs + " ms");
+            lbl_totalJarak.Text = (totalJarak.ToString());
         }
 
         private void btn_loadNodes_Click(object sender, EventArgs e)
@@ -455,7 +472,11 @@ namespace JarakTerdekat
                 toIndex = temp;
             }
 
-            return floyd.calculateShortestPath(fromIndex, toIndex);
+            List<int> hasil = floyd.calculateShortestPath(fromIndex, toIndex);
+
+            totalJarak = floyd.totalJarak;
+
+            return hasil;
         }
 
         private List<int> getPathWithBellmanFord()
@@ -486,11 +507,16 @@ namespace JarakTerdekat
 
             bellmanFord.getShortestPathList(nodeCollection.getIndexByName(cb_initialNode.Text), nodeCollection.getIndexByName(cb_endNode.Text));
 
+            totalJarak = bellmanFord.totalJarak;
+
             return bellmanFord.shortestPathList;
         }
 
         private void btn_deleteNode_Click(object sender, EventArgs e)
         {
+            if (treeView1.SelectedNode.Text == "Root")
+                return;
+
             var selectedNodeIndex = nodeCollection.getIndexByName(treeView1.SelectedNode.Text);
             var selectedNodeName = nodeCollection.Nodes[selectedNodeIndex].name;
 
@@ -517,6 +543,16 @@ namespace JarakTerdekat
             }
 
             populateSelectedNodeDataToList();
+        }
+
+        private void textBox_about_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

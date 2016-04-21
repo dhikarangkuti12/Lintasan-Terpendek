@@ -168,7 +168,9 @@
     </Compile>
     <None Include="app.config" />
     <None Include="JarakTerdekat_TemporaryKey.pfx" />
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -181,8 +183,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\dice.png" />
+    <None Include="Resources\logo usu untuk semua png1.png" />
+    <None Include="Resources\logo usu untuk semua png.png" />
+    <None Include="Resources\logo usu baru.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Images\OKEU9948.png" />
     <Content Include="Images\update.png" />
   </ItemGroup>
   <ItemGroup>

@@ -12,6 +12,8 @@ namespace JarakTerdekat
         public List<List<double>> P;
         public List<List<double>> M;
 
+        public double totalJarak;
+
         public int startIndex;
         public int endIndex;
 
@@ -94,6 +96,7 @@ namespace JarakTerdekat
                     }
                 }
             }
+            totalJarak = M[startIndex][endIndex];
             return M;
         }
 

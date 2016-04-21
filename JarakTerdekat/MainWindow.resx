@@ -190,4 +190,8 @@
         H9c9hUW/ax1l+s/UnH8BePj8zIVNlTQAAAAASUVORK5CYII=
 </value>
   </data>
+  <data name="textBox_about.Text" xml:space="preserve">
+    <value>Pencarian shortest path (lintasan terpendek) adalah masalah umum dalam suatu weighted, connected graph. Salah satu cabang ilmu matematika yang terkait dalam penyelesaian lintasan terpendek adalah teori graph. Dalam menyelesaikan teori graph diperlukan pula algoritma lintasan terpendek (shortest path algorithm). Penelitian ini menggunakan algoritma L-Queue dan algoritma Floyd untuk menghitung jarak tependek dari titik awal sampai titik tujuan dan melihat perbandingan dari cara kerja masing-masing algoritma. Dimana algoritma L-Queue beroperasi dengan cara FIFO (First In First Out) elemen pertama masuk merupakan elemen pertama keluar. Algoritma Floyd menggunakan prinsip dinamis yang melakukan pemecahan masalah dengan memandang solusi yang akan diperoleh sebagai suatu keputusan yang terkait.   Implementasi sistem menggunakan Visual Studio 14.0 dengan bahasa pemogaraman C#. Berdasarkan dari hasil penelitian menunjukkan bahwa perangkat lunak yang dibangun dapat menjalankan algoritma Floyd dan algoritma L-Queue dengan baik, kemudian, aplikasi ini dapat digunakan untuk menentukan jarak terdekat serta menunjukkan perbandingan hasil running time dari proses kedua algoritma.
+</value>
+  </data>
 </root>
