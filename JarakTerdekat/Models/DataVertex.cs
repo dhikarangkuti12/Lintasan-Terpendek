@@ -49,7 +49,7 @@ namespace JarakTerdekat
         protected void InitializeComponents()
         {
             InitializeComponent();
-            cpyRght.Text = "Copyright © " + DateTime.Now.Year;
+            //cpyRght.Text = "Copyright © " + DateTime.Now.Year;
         }
 
         private void init(object sender, EventArgs e)
