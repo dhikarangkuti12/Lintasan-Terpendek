@@ -217,6 +217,10 @@ namespace JarakTerdekat
             this.tabPage1.Controls.Add(this.materialDivider4);
             this.tabPage1.Controls.Add(this.panel1);
             this.tabPage1.Controls.Add(this.wpfHost);
+<<<<<<< HEAD
+=======
+            this.tabPage1.Controls.Add(this.but_reload);
+>>>>>>> fixMultiResFiles
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -418,9 +422,15 @@ namespace JarakTerdekat
             // 
             this.but_generate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.but_generate.Image = ((System.Drawing.Image)(resources.GetObject("but_generate.Image")));
+<<<<<<< HEAD
             this.but_generate.Location = new System.Drawing.Point(1149, 606);
             this.but_generate.Name = "but_generate";
             this.but_generate.Size = new System.Drawing.Size(11, 28);
+=======
+            this.but_generate.Location = new System.Drawing.Point(1158, 607);
+            this.but_generate.Name = "but_generate";
+            this.but_generate.Size = new System.Drawing.Size(10, 28);
+>>>>>>> fixMultiResFiles
             this.but_generate.TabIndex = 1;
             this.but_generate.UseVisualStyleBackColor = true;
             this.but_generate.Visible = false;
@@ -428,8 +438,14 @@ namespace JarakTerdekat
             // 
             // but_reload
             // 
+<<<<<<< HEAD
             this.but_reload.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.but_reload.Location = new System.Drawing.Point(1133, 606);
+=======
+            this.but_reload.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.but_reload.Image = ((System.Drawing.Image)(resources.GetObject("but_reload.Image")));
+            this.but_reload.Location = new System.Drawing.Point(1095, 6);
+>>>>>>> fixMultiResFiles
             this.but_reload.Name = "but_reload";
             this.but_reload.Size = new System.Drawing.Size(10, 28);
             this.but_reload.TabIndex = 2;
@@ -829,7 +845,10 @@ namespace JarakTerdekat
             this.Controls.Add(this.materialDivider1);
             this.Controls.Add(this.materialTabSelector1);
             this.Controls.Add(this.but_generate);
+<<<<<<< HEAD
             this.Controls.Add(this.but_reload);
+=======
+>>>>>>> fixMultiResFiles
             this.Controls.Add(this.materialTabControl1);
             this.Name = "MainWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

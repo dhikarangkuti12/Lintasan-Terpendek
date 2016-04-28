@@ -89,7 +89,7 @@ namespace JarakTerdekat
 
         private void btn_tambahNode_Click(object sender, EventArgs e)
         {
-            if(txtField_nodeName.Text!="" && !nodeCollection.isContainsNode(txtField_nodeName.Text))
+            if (txtField_nodeName.Text != "" && !nodeCollection.isContainsNode(txtField_nodeName.Text))
             {
                 nodeCollection.addNode(new Nodes(txtField_nodeName.Text));
                 treeView1.Nodes[0].Nodes.Add(txtField_nodeName.Text);
@@ -101,7 +101,7 @@ namespace JarakTerdekat
 
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            if(treeView1.SelectedNode.Text != "Root")
+            if (treeView1.SelectedNode.Text != "Root")
             {
                 updateAvailableNeigborsComboBox();
                 panel_nodeProperty.Visible = true;
@@ -116,7 +116,7 @@ namespace JarakTerdekat
 
         private void btn_tambahTetangga_Click(object sender, EventArgs e)
         {
-            if(comboBox_neighbors.Text != "")
+            if (comboBox_neighbors.Text != "")
             {
                 var selectedNeighborName = comboBox_neighbors.Text;
                 var selectedNeighbor = nodeCollection.getNodeByName(selectedNeighborName);
@@ -151,7 +151,7 @@ namespace JarakTerdekat
 
                 var selectedNeighbor = selectedNode.getNeighborByName(listview_nodeNeighbors.SelectedItems[0].Text);
 
-                using (textInputDialogue updateJarakDialogue = new textInputDialogue("Update Jarak","",selectedNeighbor.jarak.ToString()))
+                using (textInputDialogue updateJarakDialogue = new textInputDialogue("Update Jarak", "", selectedNeighbor.jarak.ToString()))
                 {
                     updateJarakDialogue.checkBox.Text = "Dua arah";
                     updateJarakDialogue.checkBox.Visible = true;
@@ -162,7 +162,7 @@ namespace JarakTerdekat
 
                         if (updateJarakDialogue.checkBox.Checked == true)
                         {
-                            if(nodeCollection.getNodeByName(selectedNeighbor.node.name).getNeighborByName(nodeCollection.selectedNode.name) == null)
+                            if (nodeCollection.getNodeByName(selectedNeighbor.node.name).getNeighborByName(nodeCollection.selectedNode.name) == null)
                             {
                                 nodeCollection.getNodeByName(selectedNeighbor.node.name).addNeighbor(nodeCollection.selectedNode.name);
                             }
@@ -197,7 +197,7 @@ namespace JarakTerdekat
                 return;
             }
 
-            
+
 
             List<int> result = new List<int>();
 
@@ -216,7 +216,7 @@ namespace JarakTerdekat
 
             watch.Stop();
             elapsedMs = watch.ElapsedMilliseconds;
-           
+
             highlightPath(result);
 
             lbl_executionTime.Text = (elapsedMs + " ms");
@@ -283,7 +283,7 @@ namespace JarakTerdekat
 
             JsonSerialization.WriteToJsonFile(path, nodeCollection.serialize());
         }
-        
+
 
         private void btn_deleteNode_Click(object sender, EventArgs e)
         {
@@ -297,11 +297,11 @@ namespace JarakTerdekat
 
             treeView1.Nodes[0].Nodes.RemoveAt(selectedNodeIndex);
 
-            foreach(var node in nodeCollection.Nodes)
+            foreach (var node in nodeCollection.Nodes)
             {
                 var i = 0;
 
-                while(i != node.neighborsCollection.Nodes.Count)
+                while (i != node.neighborsCollection.Nodes.Count)
                 {
                     var neighbor = node.neighborsCollection.Nodes[i];
                     if (neighbor.node.name == selectedNodeName)
@@ -325,9 +325,9 @@ namespace JarakTerdekat
 
         private void materialTabControl1_Selected(object sender, TabControlEventArgs e)
         {
-            if(materialTabControl1.SelectedIndex == 1 && isNewGraph)
+            if (materialTabControl1.SelectedIndex == 1 && isNewGraph)
             {
-                but_reload_Click(sender, e);
+                but_generate_Click(sender, e);
                 isNewGraph = false;
             }
         }
