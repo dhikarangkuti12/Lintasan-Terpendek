@@ -32,8 +32,8 @@ namespace JarakTerdekat
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Root");
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.materialTabSelector1 = new MaterialSkin.Controls.MaterialTabSelector();
             this.materialTabControl1 = new MaterialSkin.Controls.MaterialTabControl();
             this.Title = new System.Windows.Forms.TabPage();
@@ -134,6 +134,7 @@ namespace JarakTerdekat
             this.materialTabControl1.SelectedIndex = 0;
             this.materialTabControl1.Size = new System.Drawing.Size(1174, 477);
             this.materialTabControl1.TabIndex = 20;
+            this.materialTabControl1.Selected += new System.Windows.Forms.TabControlEventHandler(this.materialTabControl1_Selected);
             // 
             // Title
             // 
@@ -216,8 +217,6 @@ namespace JarakTerdekat
             this.tabPage1.Controls.Add(this.materialDivider4);
             this.tabPage1.Controls.Add(this.panel1);
             this.tabPage1.Controls.Add(this.wpfHost);
-            this.tabPage1.Controls.Add(this.but_generate);
-            this.tabPage1.Controls.Add(this.but_reload);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -242,6 +241,8 @@ namespace JarakTerdekat
             // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.panel1.Controls.Add(this.lbl_totalJarak);
             this.panel1.Controls.Add(this.materialFlatButton2);
             this.panel1.Controls.Add(this.lbl_executionTime);
@@ -260,12 +261,11 @@ namespace JarakTerdekat
             // 
             // lbl_totalJarak
             // 
-            this.lbl_totalJarak.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lbl_totalJarak.AutoSize = true;
             this.lbl_totalJarak.Depth = 0;
             this.lbl_totalJarak.Font = new System.Drawing.Font("Roboto", 11F);
             this.lbl_totalJarak.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lbl_totalJarak.Location = new System.Drawing.Point(140, 357);
+            this.lbl_totalJarak.Location = new System.Drawing.Point(140, 297);
             this.lbl_totalJarak.MouseState = MaterialSkin.MouseState.HOVER;
             this.lbl_totalJarak.Name = "lbl_totalJarak";
             this.lbl_totalJarak.Size = new System.Drawing.Size(0, 19);
@@ -273,11 +273,10 @@ namespace JarakTerdekat
             // 
             // materialFlatButton2
             // 
-            this.materialFlatButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.materialFlatButton2.AutoSize = true;
             this.materialFlatButton2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.materialFlatButton2.Depth = 0;
-            this.materialFlatButton2.Location = new System.Drawing.Point(4, 349);
+            this.materialFlatButton2.Location = new System.Drawing.Point(4, 289);
             this.materialFlatButton2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialFlatButton2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialFlatButton2.Name = "materialFlatButton2";
@@ -289,12 +288,11 @@ namespace JarakTerdekat
             // 
             // lbl_executionTime
             // 
-            this.lbl_executionTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lbl_executionTime.AutoSize = true;
             this.lbl_executionTime.Depth = 0;
             this.lbl_executionTime.Font = new System.Drawing.Font("Roboto", 11F);
             this.lbl_executionTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lbl_executionTime.Location = new System.Drawing.Point(140, 405);
+            this.lbl_executionTime.Location = new System.Drawing.Point(140, 345);
             this.lbl_executionTime.MouseState = MaterialSkin.MouseState.HOVER;
             this.lbl_executionTime.Name = "lbl_executionTime";
             this.lbl_executionTime.Size = new System.Drawing.Size(0, 19);
@@ -327,11 +325,10 @@ namespace JarakTerdekat
             // 
             // materialFlatButton1
             // 
-            this.materialFlatButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.materialFlatButton1.AutoSize = true;
             this.materialFlatButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.materialFlatButton1.Depth = 0;
-            this.materialFlatButton1.Location = new System.Drawing.Point(4, 397);
+            this.materialFlatButton1.Location = new System.Drawing.Point(4, 337);
             this.materialFlatButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialFlatButton1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialFlatButton1.Name = "materialFlatButton1";
@@ -361,7 +358,6 @@ namespace JarakTerdekat
             // 
             // materialFlatButton6
             // 
-            this.materialFlatButton6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.materialFlatButton6.AutoSize = true;
             this.materialFlatButton6.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.materialFlatButton6.Depth = 0;
@@ -377,7 +373,6 @@ namespace JarakTerdekat
             // 
             // materialFlatButton5
             // 
-            this.materialFlatButton5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.materialFlatButton5.AutoSize = true;
             this.materialFlatButton5.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.materialFlatButton5.Depth = 0;
@@ -393,7 +388,6 @@ namespace JarakTerdekat
             // 
             // materialFlatButton4
             // 
-            this.materialFlatButton4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.materialFlatButton4.AutoSize = true;
             this.materialFlatButton4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.materialFlatButton4.Depth = 0;
@@ -424,22 +418,24 @@ namespace JarakTerdekat
             // 
             this.but_generate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.but_generate.Image = ((System.Drawing.Image)(resources.GetObject("but_generate.Image")));
-            this.but_generate.Location = new System.Drawing.Point(1095, 6);
+            this.but_generate.Location = new System.Drawing.Point(1149, 606);
             this.but_generate.Name = "but_generate";
-            this.but_generate.Size = new System.Drawing.Size(65, 65);
+            this.but_generate.Size = new System.Drawing.Size(11, 28);
             this.but_generate.TabIndex = 1;
             this.but_generate.UseVisualStyleBackColor = true;
+            this.but_generate.Visible = false;
             this.but_generate.Click += new System.EventHandler(this.but_generate_Click);
             // 
             // but_reload
             // 
-            this.but_reload.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.but_reload.Image = ((System.Drawing.Image)(resources.GetObject("but_reload.Image")));
-            this.but_reload.Location = new System.Drawing.Point(1095, 77);
+            this.but_reload.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.but_reload.Location = new System.Drawing.Point(1133, 606);
             this.but_reload.Name = "but_reload";
-            this.but_reload.Size = new System.Drawing.Size(65, 65);
+            this.but_reload.Size = new System.Drawing.Size(10, 28);
             this.but_reload.TabIndex = 2;
+            this.but_reload.Text = "Reload";
             this.but_reload.UseVisualStyleBackColor = true;
+            this.but_reload.Visible = false;
             this.but_reload.Click += new System.EventHandler(this.but_reload_Click);
             // 
             // tabPage2
@@ -832,6 +828,8 @@ namespace JarakTerdekat
             this.Controls.Add(this.cpyRght);
             this.Controls.Add(this.materialDivider1);
             this.Controls.Add(this.materialTabSelector1);
+            this.Controls.Add(this.but_generate);
+            this.Controls.Add(this.but_reload);
             this.Controls.Add(this.materialTabControl1);
             this.Name = "MainWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
