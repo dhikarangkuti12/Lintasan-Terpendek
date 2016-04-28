@@ -134,6 +134,7 @@ namespace JarakTerdekat
             this.materialTabControl1.SelectedIndex = 0;
             this.materialTabControl1.Size = new System.Drawing.Size(1174, 477);
             this.materialTabControl1.TabIndex = 20;
+            this.materialTabControl1.Selected += new System.Windows.Forms.TabControlEventHandler(this.materialTabControl1_Selected);
             // 
             // Title
             // 
@@ -216,7 +217,6 @@ namespace JarakTerdekat
             this.tabPage1.Controls.Add(this.materialDivider4);
             this.tabPage1.Controls.Add(this.panel1);
             this.tabPage1.Controls.Add(this.wpfHost);
-            this.tabPage1.Controls.Add(this.but_generate);
             this.tabPage1.Controls.Add(this.but_reload);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
@@ -424,18 +424,19 @@ namespace JarakTerdekat
             // 
             this.but_generate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.but_generate.Image = ((System.Drawing.Image)(resources.GetObject("but_generate.Image")));
-            this.but_generate.Location = new System.Drawing.Point(1095, 6);
+            this.but_generate.Location = new System.Drawing.Point(1158, 607);
             this.but_generate.Name = "but_generate";
-            this.but_generate.Size = new System.Drawing.Size(65, 65);
+            this.but_generate.Size = new System.Drawing.Size(10, 28);
             this.but_generate.TabIndex = 1;
             this.but_generate.UseVisualStyleBackColor = true;
+            this.but_generate.Visible = false;
             this.but_generate.Click += new System.EventHandler(this.but_generate_Click);
             // 
             // but_reload
             // 
             this.but_reload.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.but_reload.Image = ((System.Drawing.Image)(resources.GetObject("but_reload.Image")));
-            this.but_reload.Location = new System.Drawing.Point(1095, 77);
+            this.but_reload.Location = new System.Drawing.Point(1095, 6);
             this.but_reload.Name = "but_reload";
             this.but_reload.Size = new System.Drawing.Size(65, 65);
             this.but_reload.TabIndex = 2;
@@ -832,6 +833,7 @@ namespace JarakTerdekat
             this.Controls.Add(this.cpyRght);
             this.Controls.Add(this.materialDivider1);
             this.Controls.Add(this.materialTabSelector1);
+            this.Controls.Add(this.but_generate);
             this.Controls.Add(this.materialTabControl1);
             this.Name = "MainWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
