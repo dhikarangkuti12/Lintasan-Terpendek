@@ -117,50 +117,15 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="textBox_about.Text" xml:space="preserve">
+    <value>Pencarian shortest path (lintasan terpendek) adalah masalah umum dalam suatu weighted, connected graph. Salah satu cabang ilmu matematika yang terkait dalam penyelesaian lintasan terpendek adalah teori graph. Dalam menyelesaikan teori graph diperlukan pula algoritma lintasan terpendek (shortest path algorithm). Penelitian ini menggunakan algoritma L-Queue dan algoritma Floyd untuk menghitung jarak tependek dari titik awal sampai titik tujuan dan melihat perbandingan dari cara kerja masing-masing algoritma. Dimana algoritma L-Queue beroperasi dengan cara FIFO (First In First Out) elemen pertama masuk merupakan elemen pertama keluar. Algoritma Floyd menggunakan prinsip dinamis yang melakukan pemecahan masalah dengan memandang solusi yang akan diperoleh sebagai suatu keputusan yang terkait.   Implementasi sistem menggunakan Visual Studio 14.0 dengan bahasa pemogaraman C#. Berdasarkan dari hasil penelitian menunjukkan bahwa perangkat lunak yang dibangun dapat menjalankan algoritma Floyd dan algoritma L-Queue dengan baik, kemudian, aplikasi ini dapat digunakan untuk menentukan jarak terdekat serta menunjukkan perbandingan hasil running time dari proses kedua algoritma.
+</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="but_generate.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         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
-        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
-        /wFYGnz+zBLT8gAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="but_reload.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAIGNIUk0AAHolAACAgwAA+f8AAIDoAABS
-        CAABFVgAADqXAAAXb9daH5AAAAAJcEhZcwAARB8AAEQfARJo3AIAAAY5SURBVHhe1dtpqG1zHMbx65pn
+        CAABFVgAADqXAAAXb9daH5AAAAAJcEhZcwAARCQAAEQkAUBnxFQAAAY5SURBVHhe1dtpqG1zHMbx65pn
         oUxlyJA5XBlfEC9kum90ZYhMiSIhQ+aULikZokxJIUMkhMxDhpBEhAyZ5zFDmY7nua11PHvt7zp77Wlt
         59an2/mdtX/r/6y99xr+a505U1NTM5o3b97/wWJysWwbtUYoU8JioqYTsJb8IQ9FrRHKlLCYqOkEHCpT
         hWOLWiOUKWExUdMJuEnKDfCFbCK0XBfKlLCYqGnLVpJPpNwAdq/Qsl0oU8JioqYt20cyfOlooeU7UKaE
@@ -188,10 +153,6 @@
         LpQpYTFR0wq/m7QBnpGRv6P9okwJi4maVniu/wmpbgD/1Qct3yrKlLCYqCnYTryzK8P7Qsd/N0DLtooy
         JSwmalrDDzSUG+ANqb1CaxNlSlhM1LSGp7t8ju4NcFlRmzjKlLCYqOkMPMnhCUo/7Um/bx1lSlhM1LQH
         H9c9hUW/ax1l+s/UnH8BePj8zIVNlTQAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="textBox_about.Text" xml:space="preserve">
-    <value>Pencarian shortest path (lintasan terpendek) adalah masalah umum dalam suatu weighted, connected graph. Salah satu cabang ilmu matematika yang terkait dalam penyelesaian lintasan terpendek adalah teori graph. Dalam menyelesaikan teori graph diperlukan pula algoritma lintasan terpendek (shortest path algorithm). Penelitian ini menggunakan algoritma L-Queue dan algoritma Floyd untuk menghitung jarak tependek dari titik awal sampai titik tujuan dan melihat perbandingan dari cara kerja masing-masing algoritma. Dimana algoritma L-Queue beroperasi dengan cara FIFO (First In First Out) elemen pertama masuk merupakan elemen pertama keluar. Algoritma Floyd menggunakan prinsip dinamis yang melakukan pemecahan masalah dengan memandang solusi yang akan diperoleh sebagai suatu keputusan yang terkait.   Implementasi sistem menggunakan Visual Studio 14.0 dengan bahasa pemogaraman C#. Berdasarkan dari hasil penelitian menunjukkan bahwa perangkat lunak yang dibangun dapat menjalankan algoritma Floyd dan algoritma L-Queue dengan baik, kemudian, aplikasi ini dapat digunakan untuk menentukan jarak terdekat serta menunjukkan perbandingan hasil running time dari proses kedua algoritma.
 </value>
   </data>
 </root>

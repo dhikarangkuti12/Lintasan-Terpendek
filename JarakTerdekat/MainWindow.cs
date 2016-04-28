@@ -29,6 +29,8 @@ namespace JarakTerdekat
 
         private double totalJarak;
 
+        private bool isNewGraph = false;
+
         public MainWindow()
         {
             nodeCollection = new NodeCollection();
@@ -63,6 +65,12 @@ namespace JarakTerdekat
 
         private void but_generate_Click(object sender, EventArgs e)
         {
+            _gArea.RelayoutGraph();
+        }
+
+        private void but_reload_Click(object sender, EventArgs e)
+        {
+
             wpfHost.Child = GenerateWpfVisuals();
             _zoomctrl.ZoomToFill();
 
@@ -73,15 +81,10 @@ namespace JarakTerdekat
             //_gArea.SetEdgesHighlight(true, (GraphControlType)1);
 
             _gArea.RelayoutGraph();
-           
+
             _gArea.ShowAllEdgesArrows(true);
 
             isGraphReady = true;
-        }
-
-        private void but_reload_Click(object sender, EventArgs e)
-        {
-            _gArea.RelayoutGraph();
         }
 
         private void btn_tambahNode_Click(object sender, EventArgs e)
@@ -250,6 +253,7 @@ namespace JarakTerdekat
                 updatePathFinderComboBox();
             }
             isGraphReady = false;
+            isNewGraph = true;
         }
 
         private void btn_saveNodes_Click(object sender, EventArgs e)
@@ -317,6 +321,15 @@ namespace JarakTerdekat
         private void pictureBox2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void materialTabControl1_Selected(object sender, TabControlEventArgs e)
+        {
+            if(materialTabControl1.SelectedIndex == 1 && isNewGraph)
+            {
+                but_reload_Click(sender, e);
+                isNewGraph = false;
+            }
         }
     }
 }
