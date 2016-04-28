@@ -81,13 +81,13 @@ namespace JarakTerdekat
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
-            this.cpyRght = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox_about = new System.Windows.Forms.TextBox();
+            this.materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
+            this.cpyRght = new System.Windows.Forms.Label();
             this.materialTabControl1.SuspendLayout();
             this.Title.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -732,33 +732,6 @@ namespace JarakTerdekat
             this.panel6.Size = new System.Drawing.Size(1160, 445);
             this.panel6.TabIndex = 0;
             // 
-            // materialDivider1
-            // 
-            this.materialDivider1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.materialDivider1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialDivider1.Depth = 0;
-            this.materialDivider1.Location = new System.Drawing.Point(-2, 599);
-            this.materialDivider1.Margin = new System.Windows.Forms.Padding(0);
-            this.materialDivider1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialDivider1.Name = "materialDivider1";
-            this.materialDivider1.Size = new System.Drawing.Size(1175, 1);
-            this.materialDivider1.TabIndex = 23;
-            this.materialDivider1.TabStop = false;
-            this.materialDivider1.Text = "materialDivider1";
-            // 
-            // cpyRght
-            // 
-            this.cpyRght.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.cpyRght.AutoSize = true;
-            this.cpyRght.BackColor = System.Drawing.Color.Transparent;
-            this.cpyRght.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cpyRght.Location = new System.Drawing.Point(1075, 615);
-            this.cpyRght.Name = "cpyRght";
-            this.cpyRght.Size = new System.Drawing.Size(0, 13);
-            this.cpyRght.TabIndex = 24;
-            this.cpyRght.Tag = "http://www.github.com/nugrahawahyu";
-            // 
             // panel7
             // 
             this.panel7.Controls.Add(this.textBox3);
@@ -796,6 +769,7 @@ namespace JarakTerdekat
             this.pictureBox2.Size = new System.Drawing.Size(197, 250);
             this.pictureBox2.TabIndex = 5;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // label1
             // 
@@ -822,6 +796,33 @@ namespace JarakTerdekat
             this.textBox_about.Size = new System.Drawing.Size(692, 274);
             this.textBox_about.TabIndex = 2;
             this.textBox_about.Text = resources.GetString("textBox_about.Text");
+            // 
+            // materialDivider1
+            // 
+            this.materialDivider1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.materialDivider1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialDivider1.Depth = 0;
+            this.materialDivider1.Location = new System.Drawing.Point(-2, 599);
+            this.materialDivider1.Margin = new System.Windows.Forms.Padding(0);
+            this.materialDivider1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialDivider1.Name = "materialDivider1";
+            this.materialDivider1.Size = new System.Drawing.Size(1175, 1);
+            this.materialDivider1.TabIndex = 23;
+            this.materialDivider1.TabStop = false;
+            this.materialDivider1.Text = "materialDivider1";
+            // 
+            // cpyRght
+            // 
+            this.cpyRght.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.cpyRght.AutoSize = true;
+            this.cpyRght.BackColor = System.Drawing.Color.Transparent;
+            this.cpyRght.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cpyRght.Location = new System.Drawing.Point(1075, 615);
+            this.cpyRght.Name = "cpyRght";
+            this.cpyRght.Size = new System.Drawing.Size(0, 13);
+            this.cpyRght.TabIndex = 24;
+            this.cpyRght.Tag = "http://www.github.com/nugrahawahyu";
             // 
             // MainWindow
             // 

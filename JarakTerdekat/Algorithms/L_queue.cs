@@ -6,16 +6,12 @@ using System.Threading.Tasks;
 
 namespace JarakTerdekat
 {
-    /*
-    * This class will allow us to find, if any, a negative cycle
-    * for a given edge weighted directed graph
-    * */
-    // find the shortest path from start to all destination
-    // works for directed/nondirected graph
+   
+    // graph berarah/ tidak berarah
     public class L_queue
     {
         public List<edge> Edge = new List<edge>();
-        public int V;   // number of vertex
+        public int V;   // jumlah verteks
         public double[] shortestPath;
 
         public int tempVertex;
@@ -68,7 +64,7 @@ namespace JarakTerdekat
 
 
         /// <summary>
-        ///  return shortestPath[V] represents distance from startIndex
+        /// representasi jarak terpendek dari start index
         /// </summary>
         public double[] GetShortestPath(int startIndex, int toIndex)
         {
@@ -136,24 +132,6 @@ namespace JarakTerdekat
             getShortestPathList(startIndex, tempVertex);
         }
 
-        /// <summary>
-        ///  return true if it has negative close loop
-        /// </summary>
-        public bool HasNegativeLoop()
-        {
-            double[] d = new double[V];
-            for (int i = 0; i < V; i++)
-            {
-                foreach (edge e in Edge)
-                {
-                    if (d[e.to] > d[e.from] + e.cost)
-                    {
-                        d[e.to] = d[e.from] + e.cost;
-                        if (i == V - 1) return true;
-                    }
-                }
-            }
-            return false;
-        }
+
     }
 }
