@@ -199,6 +199,7 @@
     <None Include="Resources\logo usu baru.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Images\OKEU9948[1].png" />
     <Content Include="Images\update.png" />
   </ItemGroup>
   <ItemGroup>
