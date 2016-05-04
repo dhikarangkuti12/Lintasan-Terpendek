@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using JarakTerdekat.Classes;
+
 namespace JarakTerdekat
 {
     partial class MainWindow
@@ -19,6 +21,7 @@ namespace JarakTerdekat
             //Console.WriteLine(inf);
 
             var pathTable = new List<List<double>>();
+
 
             for (int i = 0; i < nodeCollection.Nodes.Count; i++)
             {
@@ -64,6 +67,7 @@ namespace JarakTerdekat
             List<int> hasil = floyd.calculateShortestPath(fromIndex, toIndex);
 
             totalJarak = floyd.totalJarak;
+            elapsedTimeMs = floyd.elapsedTimeMs;
 
             return hasil;
         }

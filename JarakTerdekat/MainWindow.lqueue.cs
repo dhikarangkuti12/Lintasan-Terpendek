@@ -37,8 +37,9 @@ namespace JarakTerdekat
             lqueue.getShortestPathList(nodeCollection.getIndexByName(cb_initialNode.Text), nodeCollection.getIndexByName(cb_endNode.Text));
 
             totalJarak = lqueue.totalJarak;
+            elapsedTimeMs = lqueue.elapsedTimeMs;
 
-            return lqueue.shortestPathList;
+            return lqueue.path;
         }
     }
 }

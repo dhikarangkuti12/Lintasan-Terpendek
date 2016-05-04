@@ -14,7 +14,6 @@ using MaterialSkin.Controls;
 
 using System.Collections.Generic;
 using System.IO;
-using System.Diagnostics;
 
 namespace JarakTerdekat
 {
@@ -25,11 +24,12 @@ namespace JarakTerdekat
 
         private NodeCollection nodeCollection;
 
-        private System.Diagnostics.Stopwatch watch;
-
         private double totalJarak;
 
         private bool isNewGraph = false;
+
+        private double elapsedTimeMs;
+
 
         public MainWindow()
         {
@@ -49,9 +49,6 @@ namespace JarakTerdekat
             isGraphReady = false;
 
             cb_algoritma.Text = cb_algoritma.Items[0].ToString();
-
-            watch = System.Diagnostics.Stopwatch.StartNew();
-            watch.Stop();
 
             textBox_about.ScrollBars = ScrollBars.Vertical;
 
@@ -200,25 +197,20 @@ namespace JarakTerdekat
 
             List<int> result = new List<int>();
 
-            double elapsedMs = 0;
+
 
             if (cb_algoritma.Text == "Floyd")
             {
-                watch.Restart();
                 result = getPathWithFloyd();
             }
             else
             {
-                watch.Restart();
                 result = getPathWithLqueue();
             }
 
-            watch.Stop();
-            elapsedMs = watch.ElapsedMilliseconds;
-
             highlightPath(result);
 
-            lbl_executionTime.Text = (elapsedMs + " ms");
+            lbl_executionTime.Text = (elapsedTimeMs + " ms");
             lbl_totalJarak.Text = (totalJarak.ToString());
         }
 
