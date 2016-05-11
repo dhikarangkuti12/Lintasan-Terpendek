@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using JarakTerdekat.Classes;
+
 namespace JarakTerdekat
 {
     public class Floyd
@@ -19,6 +21,9 @@ namespace JarakTerdekat
 
         public List<int> result;
         public int N;
+
+        Stopwatch watch = new Stopwatch();
+        public double elapsedTimeMs = 0;
 
 
         public void init(List<List<double>> inputTable, double N)
@@ -44,8 +49,9 @@ namespace JarakTerdekat
             this.startIndex = startIndex;
             this.endIndex = endIndex;
 
-            result.Add(startIndex);
+            watch.start();
 
+            result.Add(startIndex);
             FloydAlgo(M);
 
             //Console.WriteLine("Matrix to find the shortest path of.");
@@ -55,14 +61,16 @@ namespace JarakTerdekat
             //Console.WriteLine("Path Matrix");
             //printMatrix(P);
 
-            path(startIndex, endIndex);
+            getPath(startIndex, endIndex);
 
-            result.Add(endIndex);
+            if (totalJarak != double.PositiveInfinity)
+                result.Add(endIndex);
 
+            elapsedTimeMs = watch.stop();
             return result;
         }
 
-        public void path(int u, int v)
+        public void getPath(int u, int v)
         {
             double k;
 
@@ -72,11 +80,11 @@ namespace JarakTerdekat
             {
                 return;
             }
-            path(u, (int)k);
+            getPath(u, (int)k);
 
             result.Add((int)k);
 
-            path((int)k, v);
+            getPath((int)k, v);
         }
 
         public List<List<double>> FloydAlgo(List<List<double>> M)

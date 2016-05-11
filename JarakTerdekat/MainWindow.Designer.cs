@@ -32,8 +32,8 @@ namespace JarakTerdekat
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Root");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Root");
             this.materialTabSelector1 = new MaterialSkin.Controls.MaterialTabSelector();
             this.materialTabControl1 = new MaterialSkin.Controls.MaterialTabControl();
             this.Title = new System.Windows.Forms.TabPage();
@@ -41,6 +41,7 @@ namespace JarakTerdekat
             this.panel3 = new System.Windows.Forms.Panel();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.materialDivider4 = new MaterialSkin.Controls.MaterialDivider();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -56,6 +57,7 @@ namespace JarakTerdekat
             this.materialFlatButton5 = new MaterialSkin.Controls.MaterialFlatButton();
             this.materialFlatButton4 = new MaterialSkin.Controls.MaterialFlatButton();
             this.wpfHost = new System.Windows.Forms.Integration.ElementHost();
+            this.but_reload = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel5 = new System.Windows.Forms.Panel();
             this.btn_deleteNode = new MaterialSkin.Controls.MaterialRaisedButton();
@@ -80,18 +82,17 @@ namespace JarakTerdekat
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.textBox3 = new System.Windows.Forms.TextBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox_about = new System.Windows.Forms.TextBox();
             this.materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
             this.cpyRght = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.but_reload = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.but_generate = new System.Windows.Forms.Button();
             this.materialTabControl1.SuspendLayout();
             this.Title.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -101,7 +102,6 @@ namespace JarakTerdekat
             this.tabPage3.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -202,6 +202,16 @@ namespace JarakTerdekat
     "INTASAN TERPENDEK PADA GRAPH\r\n\r\n\r\nDHIKA HANDAYANI RANGKUTI\r\n121401110";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.pictureBox1.Image = global::JarakTerdekat.Properties.Resources.logo_usu_untuk_semua_png1;
+            this.pictureBox1.Location = new System.Drawing.Point(183, 138);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(183, 187);
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.White;
@@ -254,12 +264,12 @@ namespace JarakTerdekat
             this.lbl_totalJarak.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lbl_totalJarak.AutoSize = true;
             this.lbl_totalJarak.Depth = 0;
-            this.lbl_totalJarak.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.lbl_totalJarak.Font = new System.Drawing.Font("Roboto", 11F);
             this.lbl_totalJarak.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lbl_totalJarak.Location = new System.Drawing.Point(140, 357);
             this.lbl_totalJarak.MouseState = MaterialSkin.MouseState.HOVER;
             this.lbl_totalJarak.Name = "lbl_totalJarak";
-            this.lbl_totalJarak.Size = new System.Drawing.Size(0, 18);
+            this.lbl_totalJarak.Size = new System.Drawing.Size(0, 19);
             this.lbl_totalJarak.TabIndex = 28;
             // 
             // materialFlatButton2
@@ -283,12 +293,12 @@ namespace JarakTerdekat
             this.lbl_executionTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lbl_executionTime.AutoSize = true;
             this.lbl_executionTime.Depth = 0;
-            this.lbl_executionTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.lbl_executionTime.Font = new System.Drawing.Font("Roboto", 11F);
             this.lbl_executionTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lbl_executionTime.Location = new System.Drawing.Point(140, 405);
             this.lbl_executionTime.MouseState = MaterialSkin.MouseState.HOVER;
             this.lbl_executionTime.Name = "lbl_executionTime";
-            this.lbl_executionTime.Size = new System.Drawing.Size(0, 18);
+            this.lbl_executionTime.Size = new System.Drawing.Size(0, 19);
             this.lbl_executionTime.TabIndex = 25;
             // 
             // cb_algoritma
@@ -410,6 +420,17 @@ namespace JarakTerdekat
             this.wpfHost.TabIndex = 0;
             this.wpfHost.Text = "elementHost1";
             this.wpfHost.Child = null;
+            // 
+            // but_reload
+            // 
+            this.but_reload.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.but_reload.Image = ((System.Drawing.Image)(resources.GetObject("but_reload.Image")));
+            this.but_reload.Location = new System.Drawing.Point(1095, 6);
+            this.but_reload.Name = "but_reload";
+            this.but_reload.Size = new System.Drawing.Size(65, 65);
+            this.but_reload.TabIndex = 2;
+            this.but_reload.UseVisualStyleBackColor = true;
+            this.but_reload.Click += new System.EventHandler(this.but_reload_Click);
             // 
             // tabPage2
             // 
@@ -673,10 +694,10 @@ namespace JarakTerdekat
             this.treeView1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.treeView1.Location = new System.Drawing.Point(3, 16);
             this.treeView1.Name = "treeView1";
-            treeNode1.Name = "Node0";
-            treeNode1.Text = "Root";
+            treeNode2.Name = "Node0";
+            treeNode2.Text = "Root";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode1});
+            treeNode2});
             this.treeView1.Size = new System.Drawing.Size(195, 387);
             this.treeView1.TabIndex = 5;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
@@ -729,6 +750,17 @@ namespace JarakTerdekat
             this.textBox3.Text = "Name              : Dhika Handayani Rangkuti\r\nNim                 : 121401110\r\nE-" +
     "mail              : dhikahandayani12@gmail.com\r\nDepartment    : Computer Science" +
     "";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.pictureBox2.Image = global::JarakTerdekat.Properties.Resources.OKEU9948_1_;
+            this.pictureBox2.Location = new System.Drawing.Point(139, 42);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(100, 132);
+            this.pictureBox2.TabIndex = 5;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // label1
             // 
@@ -783,38 +815,6 @@ namespace JarakTerdekat
             this.cpyRght.TabIndex = 24;
             this.cpyRght.Tag = "http://www.github.com/nugrahawahyu";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.pictureBox1.Image = global::JarakTerdekat.Properties.Resources.logo_usu_untuk_semua_png1;
-            this.pictureBox1.Location = new System.Drawing.Point(183, 138);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(183, 187);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
-            // but_reload
-            // 
-            this.but_reload.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.but_reload.Image = ((System.Drawing.Image)(resources.GetObject("but_reload.Image")));
-            this.but_reload.Location = new System.Drawing.Point(1095, 6);
-            this.but_reload.Name = "but_reload";
-            this.but_reload.Size = new System.Drawing.Size(65, 65);
-            this.but_reload.TabIndex = 2;
-            this.but_reload.UseVisualStyleBackColor = true;
-            this.but_reload.Click += new System.EventHandler(this.but_reload_Click);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.pictureBox2.Image = global::JarakTerdekat.Properties.Resources.OKEU9948_1_;
-            this.pictureBox2.Location = new System.Drawing.Point(139, 42);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(100, 132);
-            this.pictureBox2.TabIndex = 5;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
-            // 
             // but_generate
             // 
             this.but_generate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -845,6 +845,7 @@ namespace JarakTerdekat
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -856,7 +857,6 @@ namespace JarakTerdekat
             this.panel6.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

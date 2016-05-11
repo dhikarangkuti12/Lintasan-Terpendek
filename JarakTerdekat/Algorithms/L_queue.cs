@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using JarakTerdekat.Classes;
+
+
 namespace JarakTerdekat
 {
    
@@ -12,21 +15,22 @@ namespace JarakTerdekat
     {
         public List<edge> Edge = new List<edge>();
         public int V;   // jumlah verteks
-        public double[] shortestPath;
-
-        public int tempVertex;
-
-        bool isFirstIteration = true;
+        public List<double> shortestDistances;
 
         public double totalJarak;
 
-        public List<int> shortestPathList;
+        public List<int> predecessorVertex;
+        public List<int> path;
 
-        private bool isNewSession = true;
+
+        Stopwatch watch = new Stopwatch();
+        public double elapsedTimeMs = 0;
 
         public L_queue()
         {
-            shortestPathList = new List<int>();
+            predecessorVertex = new List<int>();
+            shortestDistances = new List<double>();
+            path = new List<int>();
         }
 
         public class edge
@@ -66,72 +70,88 @@ namespace JarakTerdekat
         /// <summary>
         /// representasi jarak terpendek dari start index
         /// </summary>
-        public double[] GetShortestPath(int startIndex, int toIndex)
+        public void GetShortestPath(int startIndex, int toIndex)
         {
             if (V == 0 && Edge.Count > 0) generateV();
 
-            shortestPath = new double[V];
+            shortestDistances.Clear();
+            predecessorVertex.Clear();
 
             double INF = double.PositiveInfinity;
 
             for (int i = 0; i < V; i++)
-                shortestPath[i] = INF;
+            {
+                shortestDistances.Add(INF);
+                predecessorVertex.Add(-1);
+            }
 
-            shortestPath[startIndex] = 0;
+            shortestDistances[startIndex] = 0;
             while (true)
             {
                 bool update = false;
                 foreach (edge e in Edge)
                 {
-                    if (shortestPath[e.from] != INF && shortestPath[e.to] > shortestPath[e.from] + e.cost)
+                    if (shortestDistances[e.from] != INF && shortestDistances[e.to] > shortestDistances[e.from] + e.cost)
                     {
-                        shortestPath[e.to] = shortestPath[e.from] + e.cost;
+                        shortestDistances[e.to] = shortestDistances[e.from] + e.cost;
+                        predecessorVertex[e.to] = e.from;
 
                         update = true;
-
-                        // masukkan e.from ke tempVertex untuk disimpan ke path terdekat
-                        // jika e.to merupakan toIndex
-                        if(e.to == toIndex)
-                        {
-                            tempVertex = e.from;
-                        }
                     }
                 }
                 if (!update) break;
             }
 
-            if (isFirstIteration)
-            {
-                totalJarak = shortestPath[toIndex];
-                isFirstIteration = false;
-            }
-
-            return shortestPath;
+            totalJarak = shortestDistances[toIndex];
         }
 
 
 
         public void getShortestPathList(int startIndex, int toIndex)
         {
-            if (isNewSession)
+            watch.start();
+            path.Add(toIndex);
+
+
+            if (startIndex != toIndex)
             {
-                shortestPathList.Add(toIndex);
-                isNewSession = false;
+                GetShortestPath(startIndex, toIndex);
             }
 
-            GetShortestPath(startIndex, toIndex);
+            getPath(startIndex, toIndex);
 
-            if (startIndex == toIndex)
+            printPath();
+
+
+            elapsedTimeMs = watch.stop();
+        }
+
+        public void getPath(int u, int v)
+        {
+            double k;
+
+            k = predecessorVertex[v];
+
+            if (k == -1 || u==v)
             {
-                isNewSession = true;
                 return;
             }
 
-            shortestPathList.Add(tempVertex);
+            path.Add((int)k);
+            getPath(u, (int)k);
 
-            getShortestPathList(startIndex, tempVertex);
         }
 
+        public void printPath()
+        {
+            Console.WriteLine("JUMLAH VERTEKS DI DALAM PATH = " + predecessorVertex.Count());
 
+            int i = 0;
+            foreach (int a in predecessorVertex)
+            {
+                Console.WriteLine("Predecessor Verteks <start>"+" -> " + i + " = " + a);
+                i++;
+            }
+        }
     }
 }

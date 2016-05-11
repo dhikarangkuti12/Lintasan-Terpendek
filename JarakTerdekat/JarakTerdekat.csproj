@@ -126,9 +126,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Algorithms\Floyd.cs" />
+    <Compile Include="Algorithms\LQueueBaru.cs" />
     <Compile Include="Algorithms\L_queue.cs" />
     <Compile Include="Classes\PlainNode.cs" />
     <Compile Include="Classes\PlainNodeCollection.cs" />
+    <Compile Include="Classes\Stopwatch.cs" />
     <Compile Include="MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>

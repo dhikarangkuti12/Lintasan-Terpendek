@@ -58,6 +58,9 @@ namespace JarakTerdekat
 
         private void highlightPath(List<int> indexs)
         {
+            if (indexs == null)
+                return;
+
             Console.WriteLine("indexs:");
             foreach (var ind in indexs)
             {
