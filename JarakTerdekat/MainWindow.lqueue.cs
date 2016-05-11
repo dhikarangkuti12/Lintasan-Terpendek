@@ -12,7 +12,7 @@ namespace JarakTerdekat
         {
             Console.WriteLine("Algorithm: L-Queue");
 
-            L_queue lqueue = new L_queue();
+            var graph = new Dictionary<int, Dictionary<int, double>>();
 
             var fromIndex = -1;
             var toIndex = -1;
@@ -24,17 +24,20 @@ namespace JarakTerdekat
 
                 if (nodeCollection.Nodes[i].neighborsCollection.Nodes.Count > 0)
                 {
+                    graph.Add(i, new Dictionary<int, double>());
                     foreach (var neighbor in nodeCollection.Nodes[i].neighborsCollection.Nodes)
                     {
                         toIndex = nodeCollection.getIndexByName(neighbor.node.name);
                         cost = neighbor.jarak;
-
-                        lqueue.Edge.Add(new L_queue.edge(fromIndex, toIndex, cost));
+                        graph[i].Add(toIndex, cost);
                     }
                 }
             }
 
-            lqueue.getShortestPathList(nodeCollection.getIndexByName(cb_initialNode.Text), nodeCollection.getIndexByName(cb_endNode.Text));
+            LQueueBaru lqueue = new LQueueBaru(graph);
+
+            lqueue.LQueue(nodeCollection.getIndexByName(cb_initialNode.Text), nodeCollection.getIndexByName(cb_endNode.Text));
+
 
             totalJarak = lqueue.totalJarak;
             elapsedTimeMs = lqueue.elapsedTimeMs;

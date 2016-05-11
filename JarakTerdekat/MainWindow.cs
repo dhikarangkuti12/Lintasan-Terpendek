@@ -327,5 +327,11 @@ namespace JarakTerdekat
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //LQueueBaru ayam = new LQueueBaru();
+            //ayam.Mainkan();
+        }
     }
 }

@@ -15,11 +15,7 @@ namespace JarakTerdekat
     {
         public List<edge> Edge = new List<edge>();
         public int V;   // jumlah verteks
-        public List<double> shortestDistance;
-
-        public int tempVertex;
-
-        bool isFirstIteration = true;
+        public List<double> shortestDistances;
 
         public double totalJarak;
 
@@ -33,7 +29,7 @@ namespace JarakTerdekat
         public L_queue()
         {
             predecessorVertex = new List<int>();
-            shortestDistance = new List<double>();
+            shortestDistances = new List<double>();
             path = new List<int>();
         }
 
@@ -74,52 +70,39 @@ namespace JarakTerdekat
         /// <summary>
         /// representasi jarak terpendek dari start index
         /// </summary>
-        public List<double> GetShortestPath(int startIndex, int toIndex)
+        public void GetShortestPath(int startIndex, int toIndex)
         {
             if (V == 0 && Edge.Count > 0) generateV();
 
-            shortestDistance.Clear();
+            shortestDistances.Clear();
             predecessorVertex.Clear();
 
             double INF = double.PositiveInfinity;
 
             for (int i = 0; i < V; i++)
             {
-                shortestDistance.Add(INF);
+                shortestDistances.Add(INF);
                 predecessorVertex.Add(-1);
             }
 
-            shortestDistance[startIndex] = 0;
+            shortestDistances[startIndex] = 0;
             while (true)
             {
                 bool update = false;
                 foreach (edge e in Edge)
                 {
-                    if (shortestDistance[e.from] != INF && shortestDistance[e.to] > shortestDistance[e.from] + e.cost)
+                    if (shortestDistances[e.from] != INF && shortestDistances[e.to] > shortestDistances[e.from] + e.cost)
                     {
-                        shortestDistance[e.to] = shortestDistance[e.from] + e.cost;
+                        shortestDistances[e.to] = shortestDistances[e.from] + e.cost;
                         predecessorVertex[e.to] = e.from;
 
                         update = true;
-
-                        // masukkan e.from ke tempVertex untuk disimpan ke path terdekat
-                        // jika e.to merupakan toIndex
-                        if(e.to == toIndex)
-                        {
-                            tempVertex = e.from;
-                        }
                     }
                 }
                 if (!update) break;
             }
 
-            if (isFirstIteration)
-            {
-                totalJarak = shortestDistance[toIndex];
-                isFirstIteration = false;
-            }
-
-            return shortestDistance;
+            totalJarak = shortestDistances[toIndex];
         }
 
 
