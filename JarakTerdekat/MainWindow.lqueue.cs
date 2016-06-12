@@ -12,7 +12,7 @@ namespace JarakTerdekat
         {
             Console.WriteLine("Algorithm: L-Queue");
 
-            var graph = new Dictionary<int, Dictionary<int, double>>();
+            var graph = new List<List<edge_>>();
 
             var fromIndex = -1;
             var toIndex = -1;
@@ -21,15 +21,15 @@ namespace JarakTerdekat
             for (int i = 0; i < nodeCollection.Nodes.Count; i++)
             {
                 fromIndex = i;
+                graph.Add(new List<edge_>());
 
                 if (nodeCollection.Nodes[i].neighborsCollection.Nodes.Count > 0)
                 {
-                    graph.Add(i, new Dictionary<int, double>());
                     foreach (var neighbor in nodeCollection.Nodes[i].neighborsCollection.Nodes)
                     {
                         toIndex = nodeCollection.getIndexByName(neighbor.node.name);
                         cost = neighbor.jarak;
-                        graph[i].Add(toIndex, cost);
+                        graph[i].Add(new edge_(fromIndex, toIndex, cost));
                     }
                 }
             }
@@ -44,5 +44,18 @@ namespace JarakTerdekat
 
             return lqueue.path;
         }
+    }
+    public class edge_
+    {
+        public int fromIndex;
+        public int toIndex;
+        public double cost;
+        public edge_(int fromIndex, int toIndex, double cost)
+        {
+            this.fromIndex = fromIndex;
+            this.toIndex = toIndex;
+            this.cost = cost;
+        }
+
     }
 }

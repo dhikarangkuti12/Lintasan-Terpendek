@@ -14,16 +14,16 @@ namespace JarakTerdekat
 {
     public class LQueueBaru
     {
-        public Dictionary<int, Dictionary<int, double>> graph;
-        Dictionary<int, double> shortestDistances = new Dictionary<int, double>();
-        Dictionary<int, double> predecessorVertex = new Dictionary<int, double>();
+        public List<List<edge_>> graph = new List<List<edge_>>();
+        List<double> shortestDistances = new List<double>();
+        List<double> predecessorVertex = new List<double>();
 
         public double totalJarak;
         public List<int> path;
         Stopwatch watch = new Stopwatch();
         public double elapsedTimeMs = 0;
 
-        public LQueueBaru(Dictionary<int, Dictionary<int, double>> graph)
+        public LQueueBaru(List<List<edge_>> graph)
         {
             this.graph = graph;
             path = new List<int>();
@@ -40,9 +40,8 @@ namespace JarakTerdekat
 
             foreach (var pair in graph)
             {
-                int node = pair.Key;
-                shortestDistances.Add(node, INF);
-                predecessorVertex.Add(node, -1);
+                shortestDistances.Add(INF);
+                predecessorVertex.Add(-1);
             }
 
             shortestDistances[startIndex] = 0;
@@ -53,10 +52,10 @@ namespace JarakTerdekat
                 int u = queue.Dequeue();
                 foreach (var pair in graph[u])
                 {
-                    int v = pair.Key;
-                    if (shortestDistances[v] > shortestDistances[u] + graph[u][v])
+                    int v = pair.toIndex;
+                    if (shortestDistances[v] > shortestDistances[u] + pair.cost)
                     {
-                        shortestDistances[v] = shortestDistances[u] + graph[u][v];
+                        shortestDistances[v] = shortestDistances[u] + pair.cost;
                         predecessorVertex[v] = u;
                         if (!queue.Contains(v))
                             queue.Enqueue(v);
@@ -67,14 +66,6 @@ namespace JarakTerdekat
             getPath(startIndex, toIndex);
             totalJarak = shortestDistances[toIndex];
             elapsedTimeMs = watch.stop();
-
-            Console.WriteLine("\nDistance:");
-            foreach (var pair in shortestDistances)
-                Console.WriteLine("{0} : {1}", pair.Key, pair.Value);
-
-            Console.WriteLine("\nPredecessor:");
-            foreach (var pair in predecessorVertex)
-                Console.WriteLine("{0} : {1}", pair.Key, pair.Value);
         }
 
         public void getPath(int u, int v)
