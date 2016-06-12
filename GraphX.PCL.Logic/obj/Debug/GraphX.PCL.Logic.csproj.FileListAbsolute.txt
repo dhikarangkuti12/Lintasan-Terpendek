@@ -20,3 +20,14 @@ D:\Code\Desktop-App\JarakTerdekat\GraphX.PCL.Logic\bin\Debug\QuickGraph.Graphviz
 D:\Code\Desktop-App\JarakTerdekat\GraphX.PCL.Logic\obj\Debug\GraphX.PCL.Logic.csprojResolveAssemblyReference.cache
 D:\Code\Desktop-App\JarakTerdekat\GraphX.PCL.Logic\obj\Debug\GraphX.PCL.Logic.dll
 D:\Code\Desktop-App\JarakTerdekat\GraphX.PCL.Logic\obj\Debug\GraphX.PCL.Logic.pdb
+D:\Code\DesktopApp\Lintasan-Terpendek\GraphX.PCL.Logic\bin\Debug\GraphX.PCL.Logic.dll
+D:\Code\DesktopApp\Lintasan-Terpendek\GraphX.PCL.Logic\bin\Debug\GraphX.PCL.Logic.pdb
+D:\Code\DesktopApp\Lintasan-Terpendek\GraphX.PCL.Logic\bin\Debug\GraphX.PCL.Common.dll
+D:\Code\DesktopApp\Lintasan-Terpendek\GraphX.PCL.Logic\bin\Debug\QuickGraph.dll
+D:\Code\DesktopApp\Lintasan-Terpendek\GraphX.PCL.Logic\bin\Debug\QuickGraph.Graphviz.dll
+D:\Code\DesktopApp\Lintasan-Terpendek\GraphX.PCL.Logic\bin\Debug\GraphX.PCL.Common.pdb
+D:\Code\DesktopApp\Lintasan-Terpendek\GraphX.PCL.Logic\bin\Debug\QuickGraph.xml
+D:\Code\DesktopApp\Lintasan-Terpendek\GraphX.PCL.Logic\bin\Debug\QuickGraph.Graphviz.xml
+D:\Code\DesktopApp\Lintasan-Terpendek\GraphX.PCL.Logic\obj\Debug\GraphX.PCL.Logic.csprojResolveAssemblyReference.cache
+D:\Code\DesktopApp\Lintasan-Terpendek\GraphX.PCL.Logic\obj\Debug\GraphX.PCL.Logic.dll
+D:\Code\DesktopApp\Lintasan-Terpendek\GraphX.PCL.Logic\obj\Debug\GraphX.PCL.Logic.pdb
