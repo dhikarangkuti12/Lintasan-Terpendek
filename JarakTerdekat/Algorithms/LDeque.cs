@@ -9,34 +9,34 @@
 using System;
 using JarakTerdekat.Classes;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace JarakTerdekat
 {
-    public class LQueueBaru
+    public class LDeque
     {
-        public List<List<edge_>> graph = new List<List<edge_>>();
+        public List<List<edge_>> graph;
         List<double> shortestDistances = new List<double>();
         List<double> predecessorVertex = new List<double>();
-
         public double totalJarak;
         public List<int> path;
         Stopwatch watch = new Stopwatch();
         public double elapsedTimeMs = 0;
 
-        public LQueueBaru(List<List<edge_>> graph)
+        public LDeque(List<List<edge_>> graph)
         {
             this.graph = graph;
             path = new List<int>();
         }
 
 
-        public void LQueue(int startIndex, int toIndex)
+        public void Ldeque(int startIndex, int toIndex)
         {
             watch.start();
             path.Add(toIndex);
 
             double INF = double.PositiveInfinity;
-            Queue<int> queue = new Queue<int>();
+            Deque<int> deque = new Deque<int>();
 
             foreach (var pair in graph)
             {
@@ -45,20 +45,29 @@ namespace JarakTerdekat
             }
 
             shortestDistances[startIndex] = 0;
-            queue.Enqueue(startIndex);
+            deque.AddToBack(startIndex);
 
-            while (queue.Count != 0)
+            while (deque.Count != 0)
             {
-                int u = queue.Dequeue();
+                int u = deque.RemoveFromFront();
                 foreach (var pair in graph[u])
                 {
                     int v = pair.toIndex;
                     if (shortestDistances[v] > shortestDistances[u] + pair.cost)
                     {
+                        if (!deque.Contains(v))
+                        {
+                            if(shortestDistances[v] == double.PositiveInfinity)
+                            {
+                                deque.AddToBack(v);
+                            }
+                            else
+                            {
+                                deque.AddToFront(v);
+                            }
+                        }
                         shortestDistances[v] = shortestDistances[u] + pair.cost;
                         predecessorVertex[v] = u;
-                        if (!queue.Contains(v))
-                            queue.Enqueue(v);
                     }
                 }
             }

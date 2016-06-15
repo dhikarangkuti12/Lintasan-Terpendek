@@ -8,7 +8,7 @@ namespace JarakTerdekat
 {
     partial class MainWindow
     {
-        private List<int> getPathWithLqueue()
+        private List<int> getPathWithLdeque()
         {
             Console.WriteLine("Algorithm: L-Queue");
 
@@ -34,9 +34,9 @@ namespace JarakTerdekat
                 }
             }
 
-            LQueueBaru lqueue = new LQueueBaru(graph);
+            LDeque lqueue = new LDeque(graph);
 
-            lqueue.LQueue(nodeCollection.getIndexByName(cb_initialNode.Text), nodeCollection.getIndexByName(cb_endNode.Text));
+            lqueue.Ldeque(nodeCollection.getIndexByName(cb_initialNode.Text), nodeCollection.getIndexByName(cb_endNode.Text));
 
 
             totalJarak = lqueue.totalJarak;
