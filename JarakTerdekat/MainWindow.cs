@@ -330,8 +330,17 @@ namespace JarakTerdekat
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //LQueueBaru ayam = new LQueueBaru();
-            //ayam.Mainkan();
+    
+        }
+
+        private void materialFlatButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

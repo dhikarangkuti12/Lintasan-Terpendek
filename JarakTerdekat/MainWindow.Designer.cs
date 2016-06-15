@@ -258,6 +258,7 @@ namespace JarakTerdekat
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(229, 439);
             this.panel1.TabIndex = 3;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // lbl_totalJarak
             // 
@@ -341,6 +342,7 @@ namespace JarakTerdekat
             this.materialFlatButton1.TabIndex = 27;
             this.materialFlatButton1.Text = "Execution Time  :";
             this.materialFlatButton1.UseVisualStyleBackColor = true;
+            this.materialFlatButton1.Click += new System.EventHandler(this.materialFlatButton1_Click);
             // 
             // cb_endNode
             // 
