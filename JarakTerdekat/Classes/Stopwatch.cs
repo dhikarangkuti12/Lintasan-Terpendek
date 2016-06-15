@@ -24,7 +24,7 @@ namespace JarakTerdekat.Classes
         public double stop()
         {
             watch.Stop();
-            return watch.ElapsedMilliseconds;
+            return watch.Elapsed.TotalMilliseconds;
         }
     }
 }

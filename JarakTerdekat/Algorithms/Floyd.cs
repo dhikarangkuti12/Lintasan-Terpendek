@@ -54,13 +54,6 @@ namespace JarakTerdekat
             result.Add(startIndex);
             FloydAlgo(M);
 
-            //Console.WriteLine("Matrix to find the shortest path of.");
-            //printMatrix(M);
-            //Console.WriteLine("Shortest Path Matrix.");
-            //printMatrix(hasil);
-            //Console.WriteLine("Path Matrix");
-            //printMatrix(P);
-
             getPath(startIndex, endIndex);
 
             if (totalJarak != double.PositiveInfinity)
@@ -115,32 +108,5 @@ namespace JarakTerdekat
             }
             return i;
         }
-
-        public void printMatrix(List<List<double>> Matrix)
-        {
-            Console.Write("\n\t");
-            for (int j = 0; j < N; j++)
-            {
-                Console.Write(j + "\t");
-            }
-            Console.WriteLine();
-            for (int j = 0; j < 35; j++)
-            {
-                Console.Write("-");
-            }
-            Console.WriteLine();
-            for (int i = 0; i < N; i++)
-            {
-                Console.Write(i + " |\t");
-                for (int j = 0; j < N; j++)
-                {
-                    Console.Write(Matrix[i][j]);
-                    Console.Write("\t");
-                }
-                Console.Write("\n");
-            }
-            Console.WriteLine("\n");
-        }
-
     }
 }
