@@ -14,7 +14,7 @@ namespace JarakTerdekat
         {
             Floyd floyd = new Floyd();
 
-            //Console.WriteLine("Algorithm: Floyd");
+            Console.WriteLine("Algorithm: Floyd");
 
             double inf = double.PositiveInfinity;
 
